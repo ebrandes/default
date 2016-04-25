@@ -7,12 +7,11 @@ function HelperService($modal, $rootScope, $alert, $templateCache) {
         showAlert: showAlert
     }
 
-
     function showAlert(options) {
 
         if (!options) {
             options = {};
-        }
+        } 
 
         $alert({
             title: (options.title) ? options.title : '',
@@ -26,6 +25,7 @@ function HelperService($modal, $rootScope, $alert, $templateCache) {
             container: '.box-alert'
         });
     }
+
 
     function openModalConfirmation(options) {
 

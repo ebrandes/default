@@ -15,14 +15,13 @@
   position: fixed;
   height: 100vh;
   width: 100%;
+  z-index: 9999;
   .loader-box {
-    width: 11%;
-    height: 20%;
     background: #FFF;
     margin: 0 auto;
-    top: 42%;
+    top: 40%;
     position: fixed;
-    left: 42%;
+    left: 45%;
     display: table;
     .loader-icon {
       display: table-cell;

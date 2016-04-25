@@ -1,3 +1,6 @@
 www/
 src/lib/
 node_modules/
+.tern-project
+.idea/
+.DS_Store
