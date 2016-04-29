@@ -10,7 +10,7 @@ var dependencies = [
 ];
 angular.module('app', dependencies)
     .run(function ($state) {
-        $state.go('login');
+        $state.go('main');
     })
     .config(function ($urlRouterProvider, $alertProvider, $datepickerProvider, $timepickerProvider) {
         $urlRouterProvider.otherwise('/');

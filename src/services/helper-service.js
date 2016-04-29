@@ -11,7 +11,7 @@ function HelperService($modal, $rootScope, $alert, $templateCache) {
 
         if (!options) {
             options = {};
-        } 
+        }
 
         $alert({
             title: (options.title) ? options.title : '',
@@ -21,7 +21,7 @@ function HelperService($modal, $rootScope, $alert, $templateCache) {
             keyboard: true,
             show: true,
             placement: 'top-right',
-            duration: (options.duration) ? options.duration : 3,
+            duration: (options.duration) ? options.duration : null,
             container: '.box-alert'
         });
     }

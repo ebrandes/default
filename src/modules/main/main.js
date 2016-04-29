@@ -22,8 +22,7 @@ function mainCtrl($scope, $templateCache, $modal, $rootScope, $timeout, Upload, 
   $scope.showAlert = function () {
     HelperService.showAlert({
       type: 'danger',
-      content: 'Aqui vai uma mensagem de informação.',
-      duration: 2
+      content: 'Aqui vai uma mensagem de informação.'
     });
   }
 
