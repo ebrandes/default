@@ -500,6 +500,10 @@ $hr-border: $gray-lighter !default;
 
 
 //default
+html, body, .container, .container-fluid {
+    height: 100%;
+    min-height: 100%;
+}
 body {
     background: $body-bg;
 }
