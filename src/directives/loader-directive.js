@@ -1,5 +1,5 @@
 angular.module('app.directives')
-    .directive('globalLoader', function() {
+    .directive('globalLoader', function($rootScope, $timeout) {
         return {
             scope: {
                 loader: '='
@@ -7,10 +7,10 @@ angular.module('app.directives')
             link: function(scope, element, attrs) {
                 scope.$watch('loader', function(newValue, oldValue) {
                     scope.loader = newValue;
+                    $setTimeout(function() {
+                        scope.loader = false;
+                    }, 10000);
                 });
-                scope.$watch('textLoader', function(newValue, oldValue) {
-                    scope.textLoader = newValue;
-                })
             },
             template: '<div ng-show="loader" class="loader-background"> ' +
                 '<div class="loader-box">' +

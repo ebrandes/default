@@ -4,7 +4,7 @@ angular.module('app.modules')
             .state('eventos', {
                 url: '/eventos',
                 templateProvider: function($templateCache) {
-                    return $templateCache.get('eventos/evento.html');
+                    return $templateCache.get('eventos/eventos.html');
                 },
                 controller: 'eventosCtrl'
             })

@@ -1,19 +1,19 @@
 var dependencies = [
     'app.modules',
+    'templates',
+    'app.services',
+    'app.directives',
     'mgcrea.ngStrap',
     'ngAnimate',
     'ngStorage',
     'ngMessages',
-    'templates',
-    'app.services',
-    'app.directives',
     'ngFileUpload'
 ];
 angular.module('app', dependencies)
-    .run(function ($state) {
+    .run(function($state) {
         $state.go('eventos');
     })
-    .config(function ($urlRouterProvider, $alertProvider, $datepickerProvider, $timepickerProvider) {
+    .config(function($urlRouterProvider, $alertProvider, $datepickerProvider, $timepickerProvider) {
         $urlRouterProvider.otherwise('/');
         //alerts
         angular.extend($alertProvider.defaults, {

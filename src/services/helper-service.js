@@ -4,7 +4,23 @@ angular.module('app.services')
 function HelperService($modal, $rootScope, $alert, $templateCache) {
     return {
         openModalConfirmation: openModalConfirmation,
-        showAlert: showAlert
+        showAlert: showAlert,
+        showLoader: showLoader,
+        hideLoader: hideLoader
+    }
+
+    function showLoader(callback) {
+        $rootScope.loader = true;
+        if (callback) {
+            callback();
+        }
+    }
+
+    function hideLoader(callback) {
+        $rootScope.loader = false;
+        if (callback) {
+            callback();
+        }
     }
 
     function showAlert(options) {
