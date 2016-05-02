@@ -130,7 +130,7 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li class="active">
-                        <a ui-sref="eventos" ><i class="fa fa-fw fa-dashboard"></i> Eventos</a>
+                        <a ui-sref="eventos"><i class="fa fa-fw fa-dashboard"></i> Eventos</a>
                     </li>
                     <li>
                         <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
@@ -169,7 +169,17 @@
             <!-- /.navbar-collapse -->
         </nav>
 
-        <div layout-fill="false" ui-view></div>
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+                <div ui-view></div>
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
 
     </div>
     <!-- /#wrapper -->

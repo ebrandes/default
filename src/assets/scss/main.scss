@@ -500,6 +500,9 @@ $hr-border: $gray-lighter !default;
 .container-fluid,
 body,
 html {}
+#page-wrapper {
+    margin-top: 50px;
+}
 //alerts
 .box-alert {
     position: fixed;
