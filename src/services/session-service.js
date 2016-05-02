@@ -1,8 +1,8 @@
-angular.module('services')
+angular.module('app.services')
     .factory('SessionService', SessionService);
 
 function SessionService($sessionStorage) {
-  
+
     return {
         setSession: setSession
     }

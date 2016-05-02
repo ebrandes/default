@@ -1,4 +1,4 @@
-angular.module('services')
+angular.module('app.services')
     .factory('HelperService', HelperService);
 
 function HelperService($modal, $rootScope, $alert, $templateCache) {

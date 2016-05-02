@@ -496,16 +496,13 @@ $hr-border: $gray-lighter !default;
 @import "../../lib/bootstrap-sass/assets/stylesheets/_bootstrap";
 @import "../../modules/main/main";
 @import "../../modules/login/login";
-
-
-
 //default
-html, body, .container, .container-fluid {
+.container,
+.container-fluid,
+body,
+html {
     height: 100%;
     min-height: 100%;
-}
-body {
-    background: $body-bg;
 }
 //alerts
 .box-alert {

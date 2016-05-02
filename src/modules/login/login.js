@@ -2,12 +2,14 @@ angular.module('app.modules')
     .controller('loginCtrl', loginCtrl);
 
 function loginCtrl($scope, $state, $rootScope, HelperService, SessionService) {
+
     var vm = this;
     var alert;
     $scope.login = login;
 
 
     function login(frm) {
+      
         if (frm.$invalid) {
             return;
         }
@@ -25,7 +27,6 @@ function loginCtrl($scope, $state, $rootScope, HelperService, SessionService) {
             });
 
         } else {
-
             var session = {
                 nome: "Eduardo Brandes",
                 email: "eduardocbrandes@gmail.com",

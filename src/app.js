@@ -5,13 +5,13 @@ var dependencies = [
     'ngStorage',
     'ngMessages',
     'templates',
-    'services',
-    'directives',
+    'app.services',
+    'app.directives',
     'ngFileUpload'
 ];
 angular.module('app', dependencies)
     .run(function ($state) {
-        $state.go('login');
+        $state.go('eventos');
     })
     .config(function ($urlRouterProvider, $alertProvider, $datepickerProvider, $timepickerProvider) {
         $urlRouterProvider.otherwise('/');

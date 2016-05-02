@@ -1,1 +1,1 @@
-angular.module('directives', []);
+angular.module('app.directives', []);
