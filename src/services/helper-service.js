@@ -16,13 +16,12 @@ function HelperService($modal, $rootScope, $alert, $templateCache) {
         $alert({
             title: (options.title) ? options.title : '',
             content: (options.content) ? options.content : 'Best check yo self, you\'re not looking too good.',
-            placement: 'top',
             type: (options.type) ? options.type : 'info',
             keyboard: true,
             show: true,
-            placement: 'top-right',
+            placement: (options.placement) ? options.placement : 'top-right',
             duration: (options.duration) ? options.duration : null,
-            container: '.box-alert'
+            container: (options.container) ? options.container : '.box-alert'
         });
     }
 

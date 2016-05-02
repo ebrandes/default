@@ -1,23 +1,33 @@
 angular.module('app.modules')
-.controller('loginCtrl', loginCtrl);
+    .controller('loginCtrl', loginCtrl);
 
-function loginCtrl($scope, $state, $rootScope, HelperService) {
-  var vm = this;
-  $scope.login = login;
+function loginCtrl($scope, $state, $rootScope, HelperService, SessionService) {
+    var vm = this;
+    $scope.login = login;
 
-  function login(frm) {
-    if (frm.$invalid) {
-      return;
+
+    function login(frm) {
+        if (frm.$invalid) {
+            return;
+        }
+
+        if ($scope.user.login != 'ntcmobile' || $scope.user.senha != '123') {
+            HelperService.showAlert({
+                container: ".box-errors-login",
+                type: 'danger',
+                placement: 'relative',
+                content: 'Login ou senha inválidos.'
+            });
+        } else {
+
+            var session = {
+                nome: "Eduardo Brandes",
+                email: "eduardocbrandes@gmail.com",
+                imagem: ""
+            };
+
+            SessionService.setSession(session);
+            $state.go("main");
+        }
     }
-
-    if ($scope.user.login != 'ntcmobile' || $scope.user.senha != '123') {
-      HelperService.showAlert({
-        type: 'danger',
-        content: 'Login ou senha inválidos.',
-        duration: 2
-      });
-    } else {
-      $state.go("main");
-    }
-  }
 }
