@@ -13,12 +13,13 @@ function HelperService($modal, $rootScope, $alert, $templateCache) {
             options = {};
         }
 
-        $alert({
+        return $alert({
             title: (options.title) ? options.title : '',
             content: (options.content) ? options.content : 'Best check yo self, you\'re not looking too good.',
             type: (options.type) ? options.type : 'info',
             keyboard: true,
             show: true,
+            animation: (options.animation) ? options.animation : 'am-fade',
             placement: (options.placement) ? options.placement : 'top-right',
             duration: (options.duration) ? options.duration : null,
             container: (options.container) ? options.container : '.box-alert'
@@ -38,17 +39,17 @@ function HelperService($modal, $rootScope, $alert, $templateCache) {
             okText: (options.okText) ? options.okText : 'Confirmar',
             cancelText: (options.cancelText) ? options.cancelText : 'Cancelar',
             showCancel: (options.showCancel === false) ? options.showCancel : true,
-            confirmFunction: (options.confirmFunction) ? options.confirmFunction : function () {
+            confirmFunction: (options.confirmFunction) ? options.confirmFunction : function() {
                 console.log("modalClosed");
             },
-            cancelFunction: (options.cancelFunction) ? options.cancelFunction : function () {
+            cancelFunction: (options.cancelFunction) ? options.cancelFunction : function() {
                 console.log("modalClosed");
             }
         };
 
         var scope = $rootScope.$new();
         scope.optionModalOpened = modalOptions;
-        scope.answer = function (res) {
+        scope.answer = function(res) {
             if (res) {
                 modalOptions.confirmFunction();
             } else {

@@ -3,6 +3,7 @@ angular.module('app.modules')
 
 function loginCtrl($scope, $state, $rootScope, HelperService, SessionService) {
     var vm = this;
+    var alert;
     $scope.login = login;
 
 
@@ -12,12 +13,17 @@ function loginCtrl($scope, $state, $rootScope, HelperService, SessionService) {
         }
 
         if ($scope.user.login != 'ntcmobile' || $scope.user.senha != '123') {
-            HelperService.showAlert({
+            if (alert) {
+                alert.hide();
+            }
+            alert = HelperService.showAlert({
                 container: ".box-errors-login",
                 type: 'danger',
-                placement: 'relative',
-                content: 'Login ou senha inválidos.'
+                placement: 'fixed',
+                animation: 'none',
+                content: 'Login ou senha inválidos.',
             });
+
         } else {
 
             var session = {
