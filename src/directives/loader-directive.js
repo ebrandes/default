@@ -7,7 +7,7 @@ angular.module('app.directives')
             link: function(scope, element, attrs) {
                 scope.$watch('loader', function(newValue, oldValue) {
                     scope.loader = newValue;
-                    $setTimeout(function() {
+                    $timeout(function() {
                         scope.loader = false;
                     }, 10000);
                 });

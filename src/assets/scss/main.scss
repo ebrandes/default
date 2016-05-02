@@ -495,15 +495,11 @@ $dl-horizontal-breakpoint: $grid-float-breakpoint !default; //** Horizontal line
 $hr-border: $gray-lighter !default;
 @import "../../lib/bootstrap-sass/assets/stylesheets/_bootstrap";
 @import "../../modules/main/main";
-@import "../../modules/login/login";
-//default
+@import "../../modules/login/login"; //default
 .container,
 .container-fluid,
 body,
-html {
-    height: 100%;
-    min-height: 100%;
-}
+html {}
 //alerts
 .box-alert {
     position: fixed;

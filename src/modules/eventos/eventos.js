@@ -3,5 +3,4 @@ angular.module('app.modules')
 
 function eventosCtrl($scope, HelperService) {
 
-    HelperService.showLoader();
 }
