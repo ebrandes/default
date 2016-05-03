@@ -6,6 +6,7 @@ angular.module('app.modules')
     templateProvider: function($templateCache){
       return $templateCache.get('main/main.html');
     },
-    controller: 'mainCtrl'
+    controller: 'mainCtrl',
+    controllerAs: 'main'
   })
 });

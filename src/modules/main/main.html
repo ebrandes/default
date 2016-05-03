@@ -1,87 +1,84 @@
 <div class="row">
 
-  <div class="col-sm-4">
-    <h3>Modal</h3>
-    <button class="btn btn-info" ng-click="abrirModal()">
-      Modal de confirmação ou aviso.
-    </button>
-    <p>Resposta: {{resposta}}</p>
-  </div>
-  <div class="col-sm-4">
-    <!-- Datetime example -->
-    <form class="form-inline">
-      <h3>Datepicker com timepicker
+    <div class="col-sm-4">
+        <h3>Modal</h3>
+        <button class="btn btn-info" ng-click="main.abrirModal()">
+            Modal de confirmação ou aviso.
+        </button>
+        <p>Resposta: {{main.resposta}}</p>
+    </div>
+    <div class="col-sm-4">
+        <!-- Datetime example -->
+        <form class="form-inline">
+            <h3>Datepicker com timepicker
         <small>(datas formatadas)</small>
       </h3>
-      <div class="form-group">
-        <label class="control-label"><i class="fa fa-calendar"></i> Datetime picker</label><br>
-        <div class="form-group">
-          <input type="text" size="10" class="form-control" ng-model="sharedDate" data-autoclose="1"
-          placeholder="Date" bs-datepicker date-format="dd/MM/yyyy" iconLeft="fa.fa-arrow-left">
-        </div>
-        <div class="form-group">
-          <input type="text" size="8" class="form-control" ng-model="sharedDate" data-time-format="h:mm"
-          data-autoclose="1" placeholder="Time" bs-timepicker>
-        </div>
-      </div>
+            <div class="form-group">
+                <label class="control-label"><i class="fa fa-calendar"></i> Datetime picker</label>
+                <br>
+                <div class="form-group">
+                    <input type="text" size="10" class="form-control" ng-model="main.sharedDate" data-autoclose="1" placeholder="Date" bs-datepicker date-format="dd/MM/yyyy" iconLeft="fa.fa-arrow-left">
+                </div>
+                <div class="form-group">
+                    <input type="text" size="8" class="form-control" ng-model="main.sharedDate" data-time-format="h:mm" data-autoclose="1" placeholder="Time" bs-timepicker>
+                </div>
+            </div>
 
-      <p>
-        {{sharedDate}}
-      </p>
-
-
-    </form>
-  </div>
-  <div class="col-sm-4">
-    <h3>Alert's</h3>
-    <button class="btn btn-default" ng-click="showAlert()">
-      Open alert
-    </button>
-  </div>
-</div>
+            <p>
+                {{main.sharedDate}}
+            </p>
 
 
-<div class="row">
-  <div class="col-sm-4" style="margin-top:20px">
-    <button class="btn btn-primary" ng-click="abrirModalCadastro()"> Formulário dentro de modal.</button>
-  </div>
-  <div class="col-sm-4">
-    <h4>Upload on file select</h4>
-
-    <button ngf-select="uploadFiles($files, $invalidFiles)" multiple
-    accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">
-    Select Files
-  </button>
-
-  <div class="row" ng-if="files">
-    Files:
-    <ul>
-      <li ng-repeat="f in files">{{f.name}} {{f.$errorParam}}
-        <div class="progress">
-          <div class="progress-bar progress-bar-success" role="progressbar"
-          aria-valuemin="0" aria-valuemax="100" ng-style="{'width': f.progress+'%'}">
-          {{f.progress}}%
-        </div>
-      </div>
-    </li>
-    <li ng-repeat="f in errFiles" class="text-danger">
-      {{f.name}} ERROR : {{f.$error}} -> {{f.$errorParam}}
-    </li>
-  </ul>
-</div>
-</div>
-</div>
-
-
-<div class="row">
-  <div class="col-sm-4">
-    <div bs-tabs>
-      <div data-title="tab 1" bs-pane>
-        painel 1
-      </div>
-      <div data-title="tab 2" bs-pane>
-        painel 2
-      </div>
+        </form>
     </div>
-  </div>
+    <div class="col-sm-4">
+        <h3>Alert's</h3>
+        <button class="btn btn-default" ng-click="main.showAlert()">
+            Open alert
+        </button>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-sm-4" style="margin-top:20px">
+        <button class="btn btn-primary" ng-click="abrirModalCadastro()"> Formulário dentro de modal.</button>
+    </div>
+    <div class="col-sm-4">
+        <h4>Upload on file select</h4>
+
+        <button ngf-select="uploadFiles($files, $invalidFiles)" multiple accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">
+            Select Files
+        </button>
+
+        <div class="row" ng-if="files">
+            Files:
+            <ul>
+                <li ng-repeat="f in files">{{f.name}} {{f.$errorParam}}
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="100" ng-style="{'width': f.progress+'%'}">
+                            {{f.progress}}%
+                        </div>
+                    </div>
+                </li>
+                <li ng-repeat="f in main.errFiles" class="text-danger">
+                    {{f.name}} ERROR : {{f.$error}} -> {{f.$errorParam}}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-sm-4">
+        <div bs-tabs>
+            <div data-title="tab 1" bs-pane>
+                painel 1
+            </div>
+            <div data-title="tab 2" bs-pane>
+                painel 2
+            </div>
+        </div>
+    </div>
 </div>

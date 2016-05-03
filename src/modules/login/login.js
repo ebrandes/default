@@ -1,20 +1,22 @@
 angular.module('app.modules')
     .controller('loginCtrl', loginCtrl);
 
-function loginCtrl($scope, $state, $rootScope, HelperService, SessionService) {
+function loginCtrl($state, $rootScope, HelperService, SessionService) {
 
-    var vm = this;
+    //variables
     var alert;
-    $scope.login = login;
+
+    //functions
+    this.login = login;
 
 
     function login(frm) {
-      
+
         if (frm.$invalid) {
             return;
         }
 
-        if ($scope.user.login != 'ntcmobile' || $scope.user.senha != '123') {
+        if (this.user.login != 'ntcmobile' || this.user.senha != '123') {
             if (alert) {
                 alert.hide();
             }

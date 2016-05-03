@@ -1,6 +1,16 @@
 #eventosPage {
-    .buttons-wrapper {
-        float: right;
+    .card {
+        .information {
+            margin: 0;
+            &:first-child {
+                margin-top: 5px !important;
+            }
+            span {
+                font-weight: bold;
+                margin-right: 5px;
+                width: 90px;
+            }
+        }
     }
 
 }

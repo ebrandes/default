@@ -6,6 +6,7 @@ angular.module('app.modules')
                 templateProvider: function($templateCache) {
                     return $templateCache.get('eventos/eventos.html');
                 },
-                controller: 'eventosCtrl'
+                controller: 'eventosCtrl',
+                controllerAs: 'evento'
             })
     });

@@ -1,14 +1,14 @@
 angular.module('app.modules')
     .controller('mainCtrl', mainCtrl);
 
-function mainCtrl($scope, $templateCache, $modal, $rootScope, $timeout, Upload, HelperService) {
-    var vm = this;
+function mainCtrl($rootScope, $templateCache, $modal, $timeout, Upload, HelperService) {
+    //variables
     $rootScope.loader = false;
-
-    $scope.abrirModal = abrirModal;
-    $scope.showAlert = showAlert;
-    $scope.abrirModalCadastro = abrirModalCadastro;
-    $scope.uploadFiles = uploadFiles;
+    //functions
+    this.abrirModal = abrirModal;
+    this.showAlert = showAlert;
+    this.abrirModalCadastro = abrirModalCadastro;
+    this.uploadFiles = uploadFiles;
 
     function abrirModal() {
         HelperService.openModalConfirmation({
@@ -16,10 +16,10 @@ function mainCtrl($scope, $templateCache, $modal, $rootScope, $timeout, Upload, 
             content: "Sera que é noix?",
             showCancel: false,
             confirmFunction: function() {
-                $scope.resposta = 'Confirmado';
+                this.resposta = 'Confirmado';
             },
             cancelFunction: function() {
-                $scope.resposta = 'Cancelado.';
+                this.resposta = 'Cancelado.';
             }
         });
     }
@@ -32,35 +32,36 @@ function mainCtrl($scope, $templateCache, $modal, $rootScope, $timeout, Upload, 
     }
 
     function abrirModalCadastro() {
-        $scope.salvar = function() {
+        this.salvar = function() {
             myModal.$promise.then(myModal.hide);
         }
 
-        $scope.cancelar = function() {
+        this.cancelar = function() {
             HelperService.openModalConfirmation({
                 title: "Noix",
                 content: "Sera que é noix?",
                 confirmFunction: function() {
-                    $scope.resposta = 'Sim.';
+                    this.resposta = 'Sim.';
                     myModal.$promise.then(myModal.hide);
                 },
                 cancelFunction: function() {
-                    $scope.resposta = 'Não.';
+                    this.resposta = 'Não.';
                 }
             });
         }
 
         var myModal = $modal({
             title: 'My Title',
-            scope: $scope,
+            scope: this,
             template: $templateCache.get('main/modal.main.html'),
-            show: true
+            show: true,
+            controllerAs: 'mdlCadastro'
         });
     }
 
     function uploadFiles(files, errFiles) {
-        $scope.files = files;
-        $scope.errFiles = errFiles;
+        this.files = files;
+        this.errFiles = errFiles;
         angular.forEach(files, function(file) {
             file.upload = Upload.upload({
                 //demo url works
@@ -76,7 +77,7 @@ function mainCtrl($scope, $templateCache, $modal, $rootScope, $timeout, Upload, 
                 });
             }, function(response) {
                 if (response.status > 0)
-                    $scope.errorMsg = response.status + ': ' + response.data;
+                    this.errorMsg = response.status + ': ' + response.data;
             }, function(evt) {
                 file.progress = Math.min(100, parseInt(100.0 *
                     evt.loaded / evt.total));

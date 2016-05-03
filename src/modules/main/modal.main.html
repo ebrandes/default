@@ -2,7 +2,7 @@
     <div class="modal-dialog">
         <form class="form-horizontal no-gutter-left" name="frmCadastro">
             <div class="modal-content">
-                <div class="modal-header" ng-show="optionModalOpened.title">
+                <div class="modal-header" ng-show="mdlCadastro.optionModalOpened.title">
                     <button type="button" class="close" ng-click="$hide()">&times;</button>
                     <h4 class="modal-title">Cadastro</h4>
                 </div>
@@ -10,32 +10,26 @@
 
                     <h3> Formulário </h3>
 
-                    <div class="form-group"
-                         ng-class="{ 'has-error': frmCadastro.name.$touched && frmCadastro.name.$invalid }">
+                    <div class="form-group" ng-class="{ 'has-error': frmCadastro.name.$touched && frmCadastro.name.$invalid }">
                         <label for="name" class="col-sm-2 control-label">Nome</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="name" id="name" ng-model="usuario.nome"
-                                   placeholder="Nome Completo" required>
+                            <input type="text" class="form-control" name="name" id="name" ng-model="mdlCadastro.usuario.nome" placeholder="Nome Completo" required>
                         </div>
 
 
-                        <div class="help-block col-sm-offset-2 pull-right" ng-messages="frmCadastro.name.$error"
-                             ng-if="frmCadastro.name.$touched">
+                        <div class="help-block col-sm-offset-2 pull-right" ng-messages="frmCadastro.name.$error" ng-if="frmCadastro.name.$touched">
                             <p ng-message="required">Campo nome requerido.</p>
                         </div>
 
                     </div>
 
-                    <div class="form-group"
-                         ng-class="{ 'has-error': frmCadastro.email.$touched && frmCadastro.email.$invalid }">
+                    <div class="form-group" ng-class="{ 'has-error': frmCadastro.email.$touched && frmCadastro.email.$invalid }">
                         <label for="email" class="col-sm-2 control-label">Email</label>
                         <div class="col-sm-10">
-                            <input type="email" class="form-control" name="email" id="email" ng-model="usuario.email"
-                                   placeholder="Email" required>
+                            <input type="email" class="form-control" name="email" id="email" ng-model="mdlCadastro.usuario.email" placeholder="Email" required>
                         </div>
 
-                        <div class="help-block col-sm-offset-2 pull-right" ng-messages="frmCadastro.email.$error"
-                             ng-if="frmCadastro.email.$touched">
+                        <div class="help-block col-sm-offset-2 pull-right" ng-messages="frmCadastro.email.$error" ng-if="frmCadastro.email.$touched">
                             <p ng-show="frmCadastro.email.$invalid">Email inválido.</p>
                         </div>
 
@@ -46,8 +40,7 @@
                     <button type="button" class="btn btn-default" ng-click="cancelar()">
                         Cancelar
                     </button>
-                    <button type="button" class="btn btn-primary" ng-disabled="frmCadastro.$invalid"
-                            ng-click="salvar()">
+                    <button type="button" class="btn btn-primary" ng-disabled="frmCadastro.$invalid" ng-click="salvar()">
                         Salvar usuário.
                     </button>
                 </div>

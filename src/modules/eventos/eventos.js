@@ -1,6 +1,38 @@
 angular.module('app.modules')
     .controller('eventosCtrl', eventosCtrl);
 
-function eventosCtrl($scope, HelperService) {
+function eventosCtrl(HelperService, $modal, $templateCache) {
+    //variables
+    this.listMode = false;
+    //definition
+    this.changeMode = changeMode;
+    this.excluirEvento = excluirEvento;
+    this.novoEvento = novoEvento;
+
+    //functions
+    function novoEvento() {
+        var modalCadastro =
+            $modal({
+                title: 'Novo evento',
+                template: $templateCache.get('eventos/cadastro-evento.modal.html'),
+                show: true
+            });
+
+    }
+
+    function excluirEvento(index) {
+        HelperService.openModalConfirmation({
+            content: 'Deseja realmente excluir o evento?',
+            showCancel: true,
+            confirmFunction: function() {
+                //this.eventos.split(index, 1);
+                console.log("Evento excluído com sucesso.");
+            }
+        });
+    }
+
+    function changeMode() {
+        this.listMode = !this.listMode;
+    }
 
 }

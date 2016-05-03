@@ -1,0 +1,47 @@
+<div class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <form class="form-horizontal no-gutter-left" name="frmEvento">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" ng-click="$hide()">&times;</button>
+                    <h4 class="modal-title"> Novo Evento </h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-group" ng-class="{ 'has-error': frmEvento.titulo.$touched && frmEvento.titulo.$invalid }">
+                        <label for="titulo" class="col-sm-2 control-label">Nome</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="titulo" id="titulo" ng-model="modalEvento.evento.titulo" placeholder="Título" required>
+                        </div>
+
+                        <div class="help-block col-sm-offset-2 pull-right" ng-messages="frmEvento.titulo.$error" ng-if="frmEvento.titulo.$touched">
+                            <p ng-message="required">Campo nome requerido.</p>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group" ng-class="{ 'has-error': frmEvento.descricao.$touched && frmEvento.descricao.$invalid }">
+                        <label for="descricao" class="col-sm-2 control-label">Descricao</label>
+                        <div class="col-sm-10">
+                            <textarea class="form-control" name="descricao" id="descricao" ng-model="modalEvento.usuario.descricao" placeholder="descricao" required> </textarea>
+                        </div>
+
+                        <div class="help-block col-sm-offset-2 pull-right" ng-messages="frmEvento.descricao.$error" ng-if="frmEvento.descricao.$touched">
+                            <p ng-show="frmEvento.descricao.$invalid">descricao inválido.</p>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" ng-click="cancelar()">
+                        Cancelar
+                    </button>
+                    <button type="button" class="btn btn-primary" ng-disabled="frmEvento.$invalid" ng-click="salvar()">
+                        Salvar usuário.
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
