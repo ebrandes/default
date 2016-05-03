@@ -10,8 +10,8 @@ $gray-dark: lighten($gray-base, 20%) !default; // #333
 $gray: lighten($gray-base, 33.5%) !default; // #555
 $gray-light: lighten($gray-base, 46.7%) !default; // #777
 $gray-lighter: lighten($gray-base, 93.5%) !default; // #eee
-$brand-primary: #32cd61 !default; // #337ab7
-$brand-success: #5cb85c !default;
+$brand-primary: #004e30 !default; // #337ab7
+$brand-success: #32cd61 !default;
 $brand-info: #ff9800 !default;
 $brand-warning: #f0ad4e !default;
 $brand-danger: #d9534f !default; //== Scaffolding
@@ -207,14 +207,14 @@ $navbar-border-radius: $border-radius-base !default;
 $navbar-padding-horizontal: floor(($grid-gutter-width / 2)) !default;
 $navbar-padding-vertical: (($navbar-height - $line-height-computed) / 2) !default;
 $navbar-collapse-max-height: 340px !default;
-$navbar-default-color: #777 !default;
-$navbar-default-bg: #f8f8f8 !default;
+$navbar-default-color: #FFF !default;
+$navbar-default-bg: #006F44 !default;
 $navbar-default-border: darken($navbar-default-bg, 6.5%) !default; // Navbar links
-$navbar-default-link-color: #777 !default;
-$navbar-default-link-hover-color: #333 !default;
+$navbar-default-link-color: #FFF !default;
+$navbar-default-link-hover-color: #FFF !default;
 $navbar-default-link-hover-bg: transparent !default;
-$navbar-default-link-active-color: #555 !default;
-$navbar-default-link-active-bg: darken($navbar-default-bg, 6.5%) !default;
+$navbar-default-link-active-color: #FFF !default;
+$navbar-default-link-active-bg: #5CB85C !default;
 $navbar-default-link-disabled-color: #ccc !default;
 $navbar-default-link-disabled-bg: transparent !default; // Navbar brand label
 $navbar-default-brand-color: $navbar-default-link-color !default;
@@ -245,8 +245,8 @@ $navbar-inverse-toggle-border-color: #333 !default; //== Navs
 //=== Shared nav styles
 $nav-link-padding: 10px 15px !default;
 $nav-link-hover-bg: $gray-lighter !default;
-$nav-disabled-link-color: $gray-light !default;
-$nav-disabled-link-hover-color: $gray-light !default; //== Tabs
+$nav-disabled-link-color: #FFF !default;
+$nav-disabled-link-hover-color: #FFF !default; //== Tabs
 $nav-tabs-border-color: #ddd !default;
 $nav-tabs-link-hover-border-color: $gray-lighter !default;
 $nav-tabs-active-link-hover-bg: $body-bg !default;
@@ -494,14 +494,16 @@ $dl-horizontal-offset: $component-offset-horizontal !default; //** Point at whic
 $dl-horizontal-breakpoint: $grid-float-breakpoint !default; //** Horizontal line color.
 $hr-border: $gray-lighter !default;
 @import "../../lib/bootstrap-sass/assets/stylesheets/_bootstrap";
-@import "../../modules/main/main";
 @import "../../modules/login/login"; //default
 .container,
 .container-fluid,
 body,
-html {}
+html {
+    background-color: $body-bg;
+}
 #page-wrapper {
     margin-top: 50px;
+    background-color: $body-bg !important;
 }
 //alerts
 .box-alert {
@@ -545,4 +547,9 @@ html {}
     position: absolute;
     left: 0;
     top: 30px;
+}
+@media (min-width: 768px) {
+    .side-nav {
+        top: 56px !important;
+    }
 }
