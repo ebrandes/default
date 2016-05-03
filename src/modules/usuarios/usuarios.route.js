@@ -6,6 +6,7 @@ angular.module('app.modules')
                 templateProvider: function($templateCache) {
                     return $templateCache.get('usuarios/usuarios.html');
                 },
-                controller: 'usuariosCtrl'
+                controller: 'usuariosCtrl',
+                controllerAs: 'usuario'
             })
     });

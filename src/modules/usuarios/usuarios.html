@@ -1,5 +1,5 @@
 <div id="usuariosPage">
-    <table class="table">
+    <table class="table table-bordered">
         <thead>
             <tr>
                 <th>Código</th>
@@ -25,7 +25,7 @@
                 <td>marialucia15@gmail.com</td>
                 <td>51-95995455</td>
                 <td style="width: 20%; text-align:center">
-                    <button class="btn btn-primary" ng-if="!user.ativo" ng-click="ativarUsuario(user.email);">Ativar</button>
+                    <button class="btn btn-primary btn-xs" ng-if="!user.ativo" ng-click="ativarUsuario(user.email);">Ativar</button>
                     <span ng-if="user.ativo">Ativado <i class="fa fa-check"></i></span>
                 </td>
                 <td style="width: 15%; text-align:center">
@@ -43,7 +43,7 @@
                 <td>marialucia15@gmail.com</td>
                 <td>51-95995455</td>
                 <td style="width: 20%; text-align:center">
-                    <button class="btn btn-primary" ng-if="!user.ativo" ng-click="ativarUsuario(user.email);">Ativar</button>
+                    <button class="btn btn-primary btn-xs" ng-if="!user.ativo" ng-click="ativarUsuario(user.email);">Ativar</button>
                     <span ng-if="user.ativo">Ativado <i class="fa fa-check"></i></span>
                 </td>
                 <td style="width: 15%; text-align:center">
@@ -61,7 +61,25 @@
                 <td>marialucia15@gmail.com</td>
                 <td>51-95995455</td>
                 <td style="width: 20%; text-align:center">
-                    <button class="btn btn-primary" ng-if="!user.ativo" ng-click="ativarUsuario(user.email);">Ativar</button>
+                    <button class="btn btn-primary btn-xs" ng-if="!user.ativo" ng-click="ativarUsuario(user.email);">Ativar</button>
+                    <span ng-if="user.ativo">Ativado <i class="fa fa-check"></i></span>
+                </td>
+                <td style="width: 15%; text-align:center">
+                    <button class="btn btn-primary btn-xs" ng-click="tornarAdm(user.email, user.adm);">Tornar Administrador</button>
+                    <button class="md-button md-raised md-warn" ng-if="user.adm == 1" ng-click="tornarAdm(user.email, user.adm);">Cancelar Administrador</button>
+                </td>
+            </tr>
+            <tr>
+                <td>15615</td>
+                <td>302.020.203.21</td>
+                <td>Maria Lucia</td>
+                <td>Lucia</td>
+                <td>Sicredi</td>
+                <td>Analista Financeira</td>
+                <td>marialucia15@gmail.com</td>
+                <td>51-95995455</td>
+                <td style="width: 20%; text-align:center">
+                    <button class="btn btn-primary btn-xs" ng-if="!user.ativo" ng-click="ativarUsuario(user.email);">Ativar</button>
                     <span ng-if="user.ativo">Ativado <i class="fa fa-check"></i></span>
                 </td>
                 <td style="width: 15%; text-align:center">
@@ -79,25 +97,7 @@
                 <td>marialucia15@gmail.com</td>
                 <td>51-95995455</td>
                 <td style="width: 20%; text-align:center">
-                    <button class="btn btn-primary" ng-if="!user.ativo" ng-click="ativarUsuario(user.email);">Ativar</button>
-                    <span ng-if="user.ativo">Ativado <i class="fa fa-check"></i></span>
-                </td>
-                <td style="width: 15%; text-align:center">
-                    <button class="btn btn-primary btn-xs" ng-if="user.adm == 0" ng-click="tornarAdm(user.email, user.adm);">Tornar Administrador</button>
-                    <button class="md-button md-raised md-warn" ng-if="!user.adm == 0" ng-click="tornarAdm(user.email, user.adm);">Cancelar Administrador</button>
-                </td>
-            </tr>
-            <tr>
-                <td>15615</td>
-                <td>302.020.203.21</td>
-                <td>Maria Lucia</td>
-                <td>Lucia</td>
-                <td>Sicredi</td>
-                <td>Analista Financeira</td>
-                <td>marialucia15@gmail.com</td>
-                <td>51-95995455</td>
-                <td style="width: 20%; text-align:center">
-                    <button class="btn btn-primary" ng-if="!user.ativo" ng-click="ativarUsuario(user.email);">Ativar</button>
+                    <button class="btn btn-primary btn-xs" ng-if="!user.ativo" ng-click="ativarUsuario(user.email);">Ativar</button>
                     <span ng-if="user.ativo">Ativado <i class="fa fa-check"></i></span>
                 </td>
                 <td style="width: 15%; text-align:center">
