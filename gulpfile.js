@@ -180,7 +180,7 @@ function serve() {
         reloadDelay: 2000
     });
 
-    gulp.watch([paths.app + paths.styles, paths.app + './**/*.scss'], ['minifyStyles', "bs-reload"]);
+    gulp.watch([paths.app + './**/*.{scss,css}'], ['minifyStyles', "bs-reload"]);
     gulp.watch([paths.app + paths.javascript, paths.app + paths.templates], ["minifyScripts", "bs-reload"]);
     gulp.watch(paths.app + paths.index, ["injectFiles", "bs-reload"]);
     gulp.watch(paths.app + paths.images, ["copyImgs", "bs-reload"])
