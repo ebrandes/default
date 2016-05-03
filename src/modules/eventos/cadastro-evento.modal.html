@@ -9,13 +9,13 @@
                 <div class="modal-body">
 
                     <div class="form-group" ng-class="{ 'has-error': frmEvento.titulo.$touched && frmEvento.titulo.$invalid }">
-                        <label for="titulo" class="col-sm-2 control-label">Nome</label>
+                        <label for="titulo" class="col-sm-2 control-label">Título</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="titulo" id="titulo" ng-model="modalEvento.evento.titulo" placeholder="Título" required>
+                            <input type="text" class="form-control" name="titulo" id="titulo" ng-model="evento.titulo" placeholder="Título" required>
                         </div>
 
                         <div class="help-block col-sm-offset-2 pull-right" ng-messages="frmEvento.titulo.$error" ng-if="frmEvento.titulo.$touched">
-                            <p ng-message="required">Campo nome requerido.</p>
+                            <p ng-message="required">Campo título inválido.</p>
                         </div>
 
                     </div>
@@ -23,22 +23,22 @@
                     <div class="form-group" ng-class="{ 'has-error': frmEvento.descricao.$touched && frmEvento.descricao.$invalid }">
                         <label for="descricao" class="col-sm-2 control-label">Descricao</label>
                         <div class="col-sm-10">
-                            <textarea class="form-control" name="descricao" id="descricao" ng-model="modalEvento.usuario.descricao" placeholder="descricao" required> </textarea>
+                            <textarea class="form-control" name="descricao" id="descricao" ng-model="modalEvento.usuario.descricao" placeholder="Descrição" required> </textarea>
                         </div>
 
                         <div class="help-block col-sm-offset-2 pull-right" ng-messages="frmEvento.descricao.$error" ng-if="frmEvento.descricao.$touched">
-                            <p ng-show="frmEvento.descricao.$invalid">descricao inválido.</p>
+                            <p ng-show="frmEvento.descricao.$invalid">Campo descricao inválido.</p>
                         </div>
 
                     </div>
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" ng-click="cancelar()">
+                    <button type="button" class="btn btn-default" ng-click="$hide()">
                         Cancelar
                     </button>
                     <button type="button" class="btn btn-primary" ng-disabled="frmEvento.$invalid" ng-click="salvar()">
-                        Salvar usuário.
+                        Salvar evento.
                     </button>
                 </div>
             </div>

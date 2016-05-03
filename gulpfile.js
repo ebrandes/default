@@ -173,7 +173,8 @@ function minifyStyles() {
 function serve() {
     browserSync.init(null, {
         server: {
-            baseDir: "www"
+            baseDir: "www",
+            port: 9000
         },
         files: [paths.app + "**.*"],
         injectChanges: true,
