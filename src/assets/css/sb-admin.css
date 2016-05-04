@@ -49,7 +49,7 @@
     color: #999;
 }
 .top-nav>li>a:hover, .top-nav>li>a:focus, .top-nav>.open>a, .top-nav>.open>a:hover, .top-nav>.open>a:focus {
-    color: #5CB85C; //*background-color: #000;*/
+    color: #004e30; //*background-color: #000;*/
 }
 .top-nav>.open>.dropdown-menu {
     float: left;
@@ -121,7 +121,7 @@ ul.alert-dropdown {
     color: #999;
 }
 .side-nav>li>ul>li>a:hover {
-    color: #5CB85C;
+    color: #004e30;
 }
 
 /* Flot Chart Containers */

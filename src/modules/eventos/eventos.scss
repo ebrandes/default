@@ -12,5 +12,11 @@
             }
         }
     }
-
+}
+#eventoCadastroPage {
+    .dateform {
+        [class^="col"] {
+            padding-left: 0 !important;
+        }
+    }
 }
