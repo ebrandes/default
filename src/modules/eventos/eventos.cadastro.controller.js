@@ -12,7 +12,9 @@ function eventoCadastroCtrl(HelperService, $modal, evento) {
         this.destaque = evento.destaque;
         this.imagem = evento.imagem;
         this.descricao = evento.descricao;
-
+        this.permitirPosts = (evento.permitirPosts) ? evento.permitirPosts : 'false';
+        this.permitirImagens = (evento.permitirImagens) ? evento.permitirImagens : 'false';
+        this.perguntasPrivadas = (evento.perguntasPrivadas) ? evento.perguntasPrivadas : 'false';
     }
     this.tabAtiva = 'evento';
     //definitions

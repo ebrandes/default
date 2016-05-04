@@ -1,6 +1,10 @@
 angular.module('app.modules')
     .controller('usuariosCtrl', usuariosCtrl);
 
-function usuariosCtrl(HelperService) {
+function usuariosCtrl($rootScope, HelperService) {
+    this.init = init;
 
+    function init() {
+        $rootScope.isInEvent = false;
+    }
 }

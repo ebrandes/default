@@ -227,11 +227,11 @@ $navbar-default-toggle-border-color: #ddd !default; //=== Inverted navbar
 //=== Shared nav styles
 $nav-link-padding: 10px 15px !default;
 $nav-link-hover-bg: $gray-lighter !default;
-$nav-disabled-link-color: #FFF !default;
-$nav-disabled-link-hover-color: #FFF !default; //== Tabs
+$nav-disabled-link-color: #C5C1C1 !default;
+$nav-disabled-link-hover-color: #CCC !default; //== Tabs
 $nav-tabs-border-color: #ddd !default;
 $nav-tabs-link-hover-border-color: $gray-lighter !default;
-$nav-tabs-active-link-hover-bg: $body-bg !default;
+$nav-tabs-active-link-hover-bg: #FFF !default;
 $nav-tabs-active-link-hover-color: $gray !default;
 $nav-tabs-active-link-hover-border-color: #ddd !default;
 $nav-tabs-justified-link-border-color: #ddd !default;
@@ -250,7 +250,7 @@ $pagination-hover-border: #ddd !default;
 $pagination-active-color: #fff !default;
 $pagination-active-bg: $brand-primary !default;
 $pagination-active-border: $brand-primary !default;
-$pagination-disabled-color: $gray-light !default;
+$pagination-disabled-color: #CCC !default;
 $pagination-disabled-bg: #fff !default;
 $pagination-disabled-border: #ddd !default; //== Pager
 //

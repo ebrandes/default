@@ -23,7 +23,7 @@
         }
     }
     .upload-preview {
-        margin-top:10px;
+        margin-top: 10px;
         position: relative;
         .remove {
             right: 25px;
@@ -34,5 +34,8 @@
         .thumbnail {
             max-height: 300px;
         }
+    }
+    .sub-radio {
+        padding-left: 20px;
     }
 }
