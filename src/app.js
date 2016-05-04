@@ -10,10 +10,11 @@ var dependencies = [
     'ngFileUpload'
 ];
 angular.module('app', dependencies)
-    .run(function($state) {
+    .run(function ($state, $rootScope) {
         $state.go('eventos');
+        $rootScope.isInEvent = false;
     })
-    .config(function($urlRouterProvider, $alertProvider, $datepickerProvider, $timepickerProvider) {
+    .config(function ($urlRouterProvider, $alertProvider, $datepickerProvider, $timepickerProvider) {
         $urlRouterProvider.otherwise('/');
         //alerts
         angular.extend($alertProvider.defaults, {

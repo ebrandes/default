@@ -1,15 +1,20 @@
 angular.module('app.modules')
     .controller('eventosCtrl', eventosCtrl);
 
-function eventosCtrl(HelperService, $scope, $modal, $templateCache) {
+function eventosCtrl(HelperService, $scope, $rootScope, $modal, $templateCache) {
     //variables
     this.listMode = false;
     //definition
+    this.init = init;
     this.changeMode = changeMode;
     this.excluirEvento = excluirEvento;
     this.novoEvento = novoEvento;
     this.closeModal = closeModal;
     //functions
+    function init() {
+        $rootScope.isInEvent = false;
+    }
+    
     function novoEvento() {
         var modalCadastro =
             $modal({
@@ -18,6 +23,7 @@ function eventosCtrl(HelperService, $scope, $modal, $templateCache) {
                 scope: $scope
             });
     }
+    
 
     function closeModal() {
         $modal.hide();

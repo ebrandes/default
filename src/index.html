@@ -134,6 +134,12 @@
                     <li ui-sref="eventos" ui-sref-active="active">
                         <a><i class="fa fa-calendar-o"></i> Eventos</a>
                     </li>
+                    <li ui-sref="dashboard" ui-sref-active="active" ng-if="isInEvent">
+                        <a class="nav-item-collapse">Dashboard</a>
+                    </li>
+                    <li ui-sref="noticias" ui-sref-active="active" ng-if="isInEvent">
+                        <a class="nav-item-collapse">Notícias</a>
+                    </li>
                     <li ui-sref="usuarios" ui-sref-active="active">
                         <a><i class="fa fa-users"></i> Usuários</a>
                     </li>
