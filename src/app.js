@@ -13,7 +13,7 @@ angular.module('app', dependencies)
     .run(function($state) {
         $state.go('eventos');
     })
-    .config(function($urlRouterProvider, $alertProvider, $datepickerProvider, $timepickerProvider) {
+    .config(function($urlRouterProvider, $alertProvider, $datepickerProvider, $timepickerProvider, $tooltipProvider) {
         $urlRouterProvider.otherwise('/');
         //alerts
         angular.extend($alertProvider.defaults, {
@@ -30,5 +30,10 @@ angular.module('app', dependencies)
         angular.extend($timepickerProvider.defaults, {
             iconUp: 'fa fa-angle-up',
             iconDown: 'fa fa-angle-down'
-        })
+        });
+        angular.extend($tooltipProvider.defaults, {
+            animation: 'am-flip-x',
+            trigger: 'hover'
+        });
+
     })

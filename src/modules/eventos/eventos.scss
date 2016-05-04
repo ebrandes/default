@@ -18,5 +18,21 @@
         [class^="col"] {
             padding-left: 0 !important;
         }
+        .help-block {
+            left: 0 !important;
+        }
+    }
+    .upload-preview {
+        margin-top:10px;
+        position: relative;
+        .remove {
+            right: 25px;
+            position: absolute;
+            color: #c30;
+            // font-size: 25px;
+        }
+        .thumbnail {
+            max-height: 300px;
+        }
     }
 }
