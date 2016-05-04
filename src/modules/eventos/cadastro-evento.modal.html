@@ -27,13 +27,13 @@
                                 <label class="control-label col-sm-2">De <i class="fa fa-calendar"></i> </label>
                                 <div class="col-sm-10 dateform">
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control pull-right" ng-model="eventoCadastro.dataInicial" data-autoclose="1" placeholder="Data inicial" bs-datepicker date-format="dd/MM/yyyy" iconLeft="fa.fa-arrow-left" required>
+                                        <input type="text" class="form-control pull-right" ng-model="eventoCadastro.dataInicial" data-max-date="{{eventoCadastro.dataFinal}}" data-autoclose="1" placeholder="Data inicial" bs-datepicker date-format="dd/MM/yyyy" iconLeft="fa.fa-arrow-left" required>
                                         <div class="help-block pull-right" ng-messages="frmEvento.dataInicial.$error" ng-if="frmEvento.dataInicial.$touched">
                                             <p ng-show="frmEvento.dataInicial.$invalid">Campo data inválida.</p>
                                         </div>
                                     </div>
                                     <div class="col-sm-5">
-                                        <input type="text" name="dataInicial" class="form-control" ng-model="eventoCadastro.dataInicial" data-time-format="h:mm" data-autoclose="1" placeholder="Hora" bs-timepicker required style="max-width:50%">
+                                        <input type="text" name="dataInicial" class="form-control" ng-model="eventoCadastro.dataInicial" data-time-format="HH:mm" data-autoclose="1" placeholder="Hora" bs-timepicker required style="max-width:50%">
                                         <div class="help-block pull-right" ng-messages="frmEvento.dataInicial.$error" ng-if="frmEvento.dataInicial.$touched">
                                             <p ng-show="frmEvento.dataInicial.$invalid">Campo hora inválida.</p>
                                         </div>
@@ -45,13 +45,13 @@
                                 <label class="control-label col-sm-2">Até <i class="fa fa-calendar"></i> </label>
                                 <div class="col-sm-10 dateform">
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control pull-right" ng-model="eventoCadastro.dataFinal" data-autoclose="1" placeholder="Data final" bs-datepicker date-format="dd/MM/yyyy" iconLeft="fa.fa-arrow-left" required>
+                                        <input type="text" class="form-control pull-right" ng-model="eventoCadastro.dataFinal" data-min-date="{{eventoCadastro.dataInicial}}" data-autoclose="1" placeholder="Data final" bs-datepicker date-format="dd/MM/yyyy" iconLeft="fa.fa-arrow-left" required>
                                         <div class="help-block pull-right" ng-messages="frmEvento.dataFinal.$error" ng-if="frmEvento.dataFinal.$touched">
                                             <p ng-show="frmEvento.dataFinal.$invalid">Campo data inválida.</p>
                                         </div>
                                     </div>
                                     <div class="col-sm-5">
-                                        <input type="text" name="dataFinal" class="form-control" ng-model="eventoCadastro.dataFinal" data-time-format="h:mm" data-autoclose="1" placeholder="Hora" bs-timepicker required style="max-width:50%">
+                                        <input type="text" name="dataFinal" class="form-control" ng-model="eventoCadastro.dataFinal" data-time-format="HH:mm" data-autoclose="1" placeholder="Hora" bs-timepicker required style="max-width:50%">
                                         <div class="help-block pull-right" ng-messages="frmEvento.dataFinal.$error" ng-if="frmEvento.dataFinal.$touched">
                                             <p ng-show="frmEvento.dataFinal.$invalid">Campo hora inválida.</p>
                                         </div>
@@ -94,7 +94,7 @@
                         <!-- fim tab 1 -->
 
                         <!-- inicio tab 2 -->
-                        <div data-title="Configurações" disabled="false" name="configuration" bs-pane>
+                        <div data-title="Configurações" disabled="frmEvento.$invalid || !frmEvento.$touched" name="config" bs-pane>
                             <h4>Configurações de notícias</h4>
                             <div class="form-group sub-radio" ng-class="{ 'has-error': frmEvento.permitirPosts.$touched && frmEvento.permitirPosts.$invalid }">
                                 <div class="col-md-12">

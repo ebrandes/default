@@ -16,15 +16,20 @@ function eventoCadastroCtrl(HelperService, $modal, evento) {
         this.permitirImagens = (evento.permitirImagens) ? evento.permitirImagens : 'false';
         this.perguntasPrivadas = (evento.perguntasPrivadas) ? evento.perguntasPrivadas : 'false';
     }
-    this.tabAtiva = 'evento';
+    this.tabAtiva = "evento";
     //definitions
     this.closeModal = closeModal;
     this.removeImage = removeImage;
     this.proximaTab = proximaTab;
-
     //functions
     function proximaTab() {
-        this.tabAtiva = 'configuration';
+        if (this.tabAtiva == "config") {
+            HelperService.showAlert({
+                content: "Salvando evento..."
+            });
+        } else {
+            this.tabAtiva = "config";
+        }
     }
 
     function removeImage() {

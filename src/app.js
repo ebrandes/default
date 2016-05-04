@@ -39,5 +39,7 @@ angular.module('app', dependencies)
         angular.extend($tabProvider.defaults, {
             animation: 'am-flip-x'
         });
-
+    })
+    .constants('API', {
+        'URL': 'http://192.168.0.77:3000/eventos/api/'
     })
