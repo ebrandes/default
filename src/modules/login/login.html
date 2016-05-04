@@ -21,7 +21,7 @@
                             <p ng-show="frmLogin.email.$invalid" class="text-danger">Campo <u>email</u> inválido.</p>
                         </div>
                         <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                        <input id="user" type="email" class="form-control" name="email" value="" ng-model="lgn.user.login" placeholder="Email" required>
+                        <input id="user" type="email" class="form-control" name="email" value="" ng-model="login.email" placeholder="Email" required>
                     </div>
 
 
@@ -30,13 +30,13 @@
                             <p ng-show="frmLogin.senha.$invalid" class="text-danger">Campo <u>senha</u> inválido.</p>
                         </div>
                         <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                        <input id="password" type="password" class="form-control" name="senha" ng-model="lgn.user.senha" placeholder="Senha" required>
+                        <input id="password" type="password" class="form-control" name="senha" ng-model="login.senha" placeholder="Senha" required>
                     </div>
 
                     <div class="form-group">
                         <!-- Button -->
                         <div class="col-sm-12 controls">
-                            <button type="submit" href="#" class="btn btn-primary pull-right" ng-click="login(frmLogin)" ng-disabled="frmLogin.$invalid"><i class="fa fa-angle-right"></i> Login</button>
+                            <button type="submit" href="#" class="btn btn-primary pull-right" ng-click="login.doLogin(frmLogin)" ng-disabled="frmLogin.$invalid"><i class="fa fa-angle-right"></i> Login</button>
                         </div>
                     </div>
 

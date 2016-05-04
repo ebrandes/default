@@ -1,42 +1,54 @@
 angular.module('app.modules')
     .controller('loginCtrl', loginCtrl);
 
-function loginCtrl($state, $rootScope, HelperService, SessionService) {
+function loginCtrl($state, $rootScope, HelperService, SessionService, LoginService) {
 
     //variables
     var alert;
 
     //functions
-    this.login = login;
+    this.doLogin = doLogin;
 
+    function doLogin(frm) {
 
-    function login(frm) {
+        var user = {
+            email: this.email,
+            senha: this.senha
+        }
 
         if (frm.$invalid) {
             return;
         }
 
-        if (this.user.login != 'ntcmobile' || this.user.senha != '123') {
-            if (alert) {
-                alert.hide();
+        LoginService.doLogin(user, function(res) {
+            if (res.success) {
+                if (res.usuario) {
+                    SessionService.setSession(response.data);
+                    $state.go("main");
+                } else {
+                    if (alert) {
+                        alert.hide();
+                    }
+                    alert = HelperService.showAlert({
+                        container: ".box-errors-login",
+                        type: 'danger',
+                        placement: 'fixed',
+                        animation: 'none',
+                        content: 'Login ou senha inválidos.',
+                    });
+                }
+            } else {
+                if (alert) {
+                    alert.hide();
+                }
+                alert = HelperService.showAlert({
+                    container: ".box-errors-login",
+                    type: 'danger',
+                    placement: 'fixed',
+                    animation: 'none',
+                    content: 'Login ou senha inválidos.',
+                });
             }
-            alert = HelperService.showAlert({
-                container: ".box-errors-login",
-                type: 'danger',
-                placement: 'fixed',
-                animation: 'none',
-                content: 'Login ou senha inválidos.',
-            });
-
-        } else {
-            var session = {
-                nome: "Eduardo Brandes",
-                email: "eduardocbrandes@gmail.com",
-                imagem: ""
-            };
-
-            SessionService.setSession(session);
-            $state.go("main");
-        }
+        })
     }
 }

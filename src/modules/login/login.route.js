@@ -7,6 +7,6 @@ angular.module('app.modules')
                     return $templateCache.get('login/login.html');
                 },
                 controller: 'loginCtrl',
-                controllerAs: 'lgn'
+                controllerAs: 'login'
             })
     });

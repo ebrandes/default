@@ -7,12 +7,14 @@ var dependencies = [
     'ngAnimate',
     'ngStorage',
     'ngMessages',
-    'ngFileUpload'
+    'ngFileUpload',
+    'angular-md5'
 ];
 angular.module('app', dependencies)
     .run(function($state, $rootScope) {
-        $state.go('eventos');
+        //$state.go('eventos');
         $rootScope.isInEvent = false;
+        $state.go('login');
     })
     .config(function($urlRouterProvider, $alertProvider, $datepickerProvider, $timepickerProvider, $tooltipProvider, $tabProvider) {
         $urlRouterProvider.otherwise('/');
@@ -40,6 +42,6 @@ angular.module('app', dependencies)
             animation: 'am-flip-x'
         });
     })
-    .constants('API', {
-        'URL': 'http://192.168.0.77:3000/eventos/api/'
+    .constant('API', {
+        'url': 'http://192.168.0.77:3000/eventos/api/'
     })
