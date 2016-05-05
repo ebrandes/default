@@ -8,10 +8,13 @@
                 <h4 class="modal-title">{{  (vm.acao === 'editar' ? 'Edição de' : 'Nova ') + vm.tipo   }}</h4>
             </div>
             <div class="modal-body" ng-init="isLista = vm.tipo === 'lista'">
-                <form>
-                    <div class="form-group">
+                <form novalidate name="formInformacao">
+                    <div class="form-group" ng-class="{ 'has-error': formInformacao.nome.$touched && formInformacao.nome.$invalid }">
                         <label for="nome">Nome</label>
-                        <input type="text" class="form-control" id="nome" placeholder="Nome" ng-model="vm.informacao.nome" auto-focus>
+                        <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome" ng-model="vm.informacao.nome" required auto-focus>
+                        <div class="help-block pull-right" ng-messages="formInformacao.nome.$error" ng-if="formInformacao.nome.$touched">
+                            <p ng-message="required">Nome inválido</p>
+                        </div>
                     </div>
                     <div ng-if="vm.isTipo('lista')">
                         <div class="row" ng-repeat="filho in vm.informacao.filhos track by $index">
@@ -39,9 +42,12 @@
                         </div>
                     </div>
                     <div ng-if="vm.isTipo('informacao')">
-                        <div class="form-group">
-                            <label for="nome">Descrição</label>
-                            <textarea id="descricao" class="form-control" cols="30" rows="10" ng-model="vm.informacao.descricao"></textarea>
+                        <div class="form-group" ng-class="{ 'has-error': formInformacao.descricao.$touched && formInformacao.descricao.$invalid }">
+                            <label for="descricao">Descrição</label>
+                            <textarea id="descricao" class="form-control" name="descricao" cols="30" rows="10" ng-model="vm.informacao.descricao" required></textarea>
+                            <div class="help-block pull-right" ng-messages="formInformacao.descricao.$error" ng-if="formInformacao.descricao.$touched">
+                                <p ng-message="required">Descrição inválida</p>
+                            </div>
                         </div>
                     </div>
                 </form>
@@ -59,7 +65,7 @@
                             <i class="fa fa-times" aria-hidden="true"></i>
                             Cancelar
                         </button>
-                        <button type="button" class="btn btn-primary" ng-click="vm.salvar(vm.informacao)">
+                        <button type="button" class="btn btn-primary" ng-disabled="formInformacao.$invalid" ng-click="vm.salvar(vm.informacao)">
                             <i class="fa fa-check" aria-hidden="true"></i>
                             Salvar
                         </button>
