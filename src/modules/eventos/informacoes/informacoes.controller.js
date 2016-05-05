@@ -2,10 +2,9 @@ angular
     .module('app.modules')
     .controller('informacoesCtrl', informacoesCtrl);
 
-function informacoesCtrl(HelperService, $log, $modal, $templateCache, $scope, $rootScope) {
+function informacoesCtrl(HelperService, $log, $modal, $templateCache, $scope) {
     var vm = this;
     var tiposInformacoes = ['lista', 'informacao'];
-
 
     vm.excluirInformacao = excluirInformacao;
     vm.adicionarInformacao = adicionarInformacao;
