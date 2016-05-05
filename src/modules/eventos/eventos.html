@@ -1,17 +1,17 @@
-<div id="eventosPage" ng-init="evento.init();">
+<div id="vm.sPage" ng-init="vm.init();">
 
     <div class="row">
         <div class="col-xs-6">
             <h2> Eventos </h2>
         </div>
         <div class="col-xs-6">
-            <button style="margin-top:20px" type="button" name="button" class="btn btn-primary pull-right" ng-click="evento.novoEvento()">
+            <button style="margin-top:20px" type="button" name="button" class="btn btn-primary pull-right" ng-click="vm.novoEvento()">
                 Novo evento
             </button>
         </div>
     </div>
 
-    <div class="row" ng-if="!evento.listMode">
+    <div class="row" ng-if="!vm.listMode">
         <div class="col-md-4 card">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -30,7 +30,7 @@
                     </p>
 
                     <div class="buttons pull-right">
-                        <button type="button" name="button" class="btn btn-danger" ng-click="evento.excluirEvento(index)">
+                        <button type="button" name="button" class="btn btn-danger" ng-click="vm.excluirEvento(index)">
                             Excluir
                         </button>
                         <button type="button" name="button" class="btn btn-warning">

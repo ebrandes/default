@@ -11,10 +11,22 @@ var dependencies = [
     'angular-md5'
 ];
 angular.module('app', dependencies)
-    .run(function($state, $rootScope) {
-        //$state.go('eventos');
+    .run(function($state, $rootScope, $location, SessionService) {
+
+        $rootScope.$on('$stateChangeStart',
+            function(event, toState, toParams, fromState, fromParams, options) {
+                if ($location.$$path == '/login') {
+                    $rootScope.showMenu = false;
+                } else {
+                    $rootScope.showMenu = true;
+                }
+            })
+
+        if (SessionService.session) {
+            console.log(SessionService.session);
+        }
+
         $rootScope.isInEvent = false;
-        $state.go('login');
     })
     .config(function($urlRouterProvider, $alertProvider, $datepickerProvider, $timepickerProvider, $tooltipProvider, $tabProvider) {
         $urlRouterProvider.otherwise('/');

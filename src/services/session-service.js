@@ -1,7 +1,7 @@
 angular.module('app.services')
     .factory('SessionService', SessionService);
 
-function SessionService($sessionStorage) {
+function SessionService($localStorage) {
 
     return {
         setSession: setSession
@@ -9,7 +9,7 @@ function SessionService($sessionStorage) {
 
 
     function setSession(session) {
-      $sessionStorage.set('session', session);
+        $localStorage.session = session;
     }
 
 }

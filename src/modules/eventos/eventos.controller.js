@@ -14,7 +14,7 @@ function eventosCtrl(HelperService, $scope, $rootScope, $modal, $templateCache) 
     function init() {
         $rootScope.isInEvent = false;
     }
-    
+
     function novoEvento(evento) {
         if (!evento) {
             this.eventoSelecionado = {};
@@ -26,7 +26,7 @@ function eventosCtrl(HelperService, $scope, $rootScope, $modal, $templateCache) 
                 template: $templateCache.get('eventos/cadastro-evento.modal.html'),
                 show: true,
                 controller: eventoCadastroCtrl,
-                controllerAs: 'eventoCadastro',
+                controllerAs: 'vm',
                 locals: {
                     evento: this.eventoSelecionado
                 }

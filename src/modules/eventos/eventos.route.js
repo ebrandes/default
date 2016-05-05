@@ -7,6 +7,6 @@ angular.module('app.modules')
                     return $templateCache.get('eventos/eventos.html');
                 },
                 controller: 'eventosCtrl',
-                controllerAs: 'evento'
+                controllerAs: 'vm'
             })
     });

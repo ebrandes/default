@@ -23,7 +23,7 @@ function loginCtrl($state, $rootScope, HelperService, SessionService, LoginServi
         LoginService.doLogin(user, function(res) {
             if (res.success) {
                 if (res.usuario) {
-                    SessionService.setSession(response.data);
+                    SessionService.setSession(res.data);
                     $state.go("main");
                 } else {
                     if (alert) {
