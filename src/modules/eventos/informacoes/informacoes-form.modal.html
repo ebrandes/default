@@ -11,7 +11,7 @@
                 <form>
                     <div class="form-group">
                         <label for="nome">Nome</label>
-                        <input type="text" class="form-control" id="nome" placeholder="Nome" ng-model="vm.informacao.nome">
+                        <input type="text" class="form-control" id="nome" placeholder="Nome" ng-model="vm.informacao.nome" auto-focus>
                     </div>
                     <div ng-if="vm.isTipo('lista')">
                         <div class="row" ng-repeat="filho in vm.informacao.filhos track by $index">
