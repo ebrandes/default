@@ -1,0 +1,11 @@
+#noticiasPage {
+    .buttons-block {
+        display: table-cell;
+        .btn-danger {
+            margin: 15px 0 5px 0;
+        }
+        .btn-warning {
+            margin-left: 2px;
+        }
+    }
+}
