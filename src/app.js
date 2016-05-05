@@ -59,5 +59,5 @@ angular.module('app', dependencies)
         });
     })
     .constant('API', {
-        'url': 'http://192.168.0.77:3000/eventos/api/'
+        'url': 'http://192.168.0.76:3000/eventos/api/'
     })

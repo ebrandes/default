@@ -1,12 +1,12 @@
 angular.module('app.modules')
     .config(function ($stateProvider) {
         $stateProvider
-            .state('noticias', {
-                url: '/:id/noticias',
+            .state('informacoes', {
+                url: '/:id/informacoes',
                 templateProvider: function ($templateCache) {
-                    return $templateCache.get('eventos/noticias/noticias.html');
+                    return $templateCache.get('eventos/informacoes/informacoes.html');
                 },
-                controller: 'noticiasCtrl',
+                controller: 'informacoesCtrl',
                 controllerAs: 'vm'
             })
     })

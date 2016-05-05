@@ -1,3 +1,54 @@
 <div id="noticiasPage">
-    <h2>Noticias</h2>
+    <div class="row">
+        <div class="col-xs-6">
+            <h2> Notícias </h2>
+        </div>
+        <div class="col-xs-6">
+            <button style="margin-top:20px" type="button" name="button" class="btn btn-primary pull-right" ng-click="vm.novaNoticia()">
+                Nova noticia
+            </button>
+        </div>
+    </div>
+    <div>
+        <div class="media">
+            <div class="media-left media-middle">
+                <a href="#">
+                    <img class="media-object" src="http://placehold.it/80x80" alt="...">
+                </a>
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">Middle aligned media</h4>
+                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras
+                    purus odio, vestibulum in vulputate at, tempus viverra turpis.</p>
+            </div>
+            <div class="buttons-block">
+                <button type="button" name="button" class="btn btn-danger btn-xs" ng-click="vm.excluirNoticia(index)">
+                    Excluir
+                </button>
+                <button type="button" name="button" class="btn btn-warning btn-xs">
+                    Editar
+                </button>
+            </div>
+        </div>
+        <div class="media">
+            <div class="media-left media-middle">
+                <a href="#">
+                    <img class="media-object" src="http://placehold.it/80x80" alt="...">
+                </a>
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">Middle aligned media</h4>
+                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras
+                    purus odio, vestibulum in vulputate at, tempus viverra turpis.</p>
+            </div>
+            <div class="buttons-block">
+                <button type="button" name="button" class="btn btn-danger btn-xs" ng-click="vm.excluirNoticia(index)">
+                    Excluir
+                </button>
+                <button type="button" name="button" class="btn btn-warning btn-xs">
+                    Editar
+                </button>
+            </div>
+        </div>
+    </div>
 </div>
