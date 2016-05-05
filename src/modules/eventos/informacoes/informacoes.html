@@ -3,26 +3,29 @@
         <div class="col-xs-6">
             <h2>Informações</h2>
         </div>
-        <div class="col-xs-6">
-            <button style="margin-top:20px" class="btn btn-primary pull-right">
+        <div class="col-xs-6 text-right">
+            <button style="margin-top:20px" class="btn btn-primary" ng-click="vm.adicionarInformacao('informacao')">
                 <i class="fa fa-plus" aria-hidden="true"></i>
                 Nova Informação
             </button>
+            <button style="margin-top:20px" class="btn btn-primary" ng-click="vm.adicionarInformacao('lista')">
+                <i class="fa fa-plus" aria-hidden="true"></i>
+                Nova Lista
+            </button>
         </div>
     </div>
-
-    <div class="panel panel-primary">
+    <div class="panel panel-default" ng-repeat="informacao in vm.informacoes">
         <div class="panel-heading">
             <div class="row">
                 <div class="col-xs-6">
-                    Equipe projeto
+                    {{ informacao.nome }}
                 </div>
                 <div class="col-xs-6 text-right">
-                    <button class="btn btn-warning">
+                    <button class="btn btn-warning" ng-click="vm.editarInformacao(informacao)">
                         <i class="fa fa-pencil" aria-hidden="true"></i>
                         Editar
                     </button>
-                    <button class="btn btn-danger">
+                    <button class="btn btn-danger" ng-click="vm.excluirInformacao(informacao)">
                         <i class="fa fa-times" aria-hidden="true"></i>
                         Excluir
                     </button>
@@ -30,14 +33,20 @@
             </div>
         </div>
         <div class="panel-body">
-            <div class="row">
-                <div class="col-xs-6">
-                    João Feck
-                </div>
-                <div class="col-xs-6">
-                    joao_feck@sicredi.com.br - ramal: 7213
+            <div ng-if="informacao.descricao">
+                {{ informacao.descricao }}
+            </div>
+            <div ng-if="informacao.filhos">
+                <div class="row" ng-repeat="filho in informacao.filhos">
+                    <div class="col-xs-6">
+                        <strong>{{ filho.nome }}</strong>
+                    </div>
+                    <div class="col-xs-6">
+                        {{ filho.descricao}}
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
