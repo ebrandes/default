@@ -503,6 +503,9 @@ html {
     top: 10px;
     z-index: 99999;
 }
+.vcenter {
+    vertical-align: middle !important;
+}
 //loader
 .loader-background {
     background: rgba(0, 0, 0, 0.5);

@@ -121,8 +121,11 @@
             <li ui-sref="eventos.dashboard" ui-sref-active="active" ng-if="isInEvent">
                 <a><i class="fa fa-arrow-circle-right"></i>Dashboard</a>
             </li>
-            <li ui-sref="informacoes" ui-sref-active="active" ng-if="isInEvent">
-                <a><i class="fa fa-arrow-circle-right"></i>Informações</a>
+            <li ui-sref="eventos.informacoes" ui-sref-active="active" ng-if="isInEvent">
+                <a class="nav-item-collapse">Informações</a>
+            </li>
+            <li ui-sref="eventos.participantes" ui-sref-active="active" ng-if="isInEvent">
+                <a class="nav-item-collapse">Participantes</a>
             </li>
             <li ui-sref="eventos.noticias" ui-sref-active="active" ng-if="isInEvent">
                 <a> <i class="fa fa-arrow-circle-right"></i>Notícias</a>
