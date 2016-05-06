@@ -1,7 +1,7 @@
 angular.module('app.modules')
     .config(function ($stateProvider) {
         $stateProvider
-            .state('dashboard', {
+            .state('eventos.dashboard', {
                 url: '/:id/dashboard',
                 templateProvider: function ($templateCache) {
                     return $templateCache.get('eventos/dashboard/dashboard.html');
