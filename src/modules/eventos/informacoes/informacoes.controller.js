@@ -2,7 +2,7 @@ angular
     .module('app.modules')
     .controller('informacoesCtrl', informacoesCtrl);
 
-function informacoesCtrl(HelperService, $log, $modal, $templateCache, $scope) {
+function informacoesCtrl($log, $modal, $templateCache, $scope, ModalService) {
     var vm = this;
     var tiposInformacoes = ['lista', 'informacao'];
 
@@ -49,7 +49,7 @@ function informacoesCtrl(HelperService, $log, $modal, $templateCache, $scope) {
     }
 
     function excluirInformacao(informacao) {
-        HelperService.openModalConfirmation({
+        ModalService.openModalConfirmation({
             content: 'Deseja realmente excluir esta informação?',
             showCancel: true,
             confirmFunction: function() {
