@@ -5,7 +5,7 @@
                 <button type="button" class="close"Taria-label="Close" ng-click="$hide()">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <h4 class="modal-title">{{  (vm.acao === 'editar' ? 'Edição de' : 'Nova ') + vm.tipo   }}</h4>
+                <h4 class="modal-title">{{  (vm.acao === 'editar' ? 'Edição de ' : 'Nova ') + vm.tipo   }}</h4>
             </div>
             <div class="modal-body" ng-init="isLista = vm.tipo === 'lista'">
                 <form novalidate name="formInformacao">
