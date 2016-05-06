@@ -7,7 +7,7 @@ function loginService($http, API, md5) {
     }
 
     function doLogin(user, callback) {
-        $http.post(API.url + '/login-administrador', user).then(function(response) {
+        $http.post(API.url + '/login-administrador', user).then(function (response) {
             callback(response.data);
         });
     }

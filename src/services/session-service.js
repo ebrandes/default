@@ -4,12 +4,17 @@ angular.module('app.services')
 function SessionService($localStorage) {
 
     return {
-        setSession: setSession
+        setSession: setSession,
+        getSession: getSession
     }
 
 
     function setSession(session) {
         $localStorage.session = session;
+    }
+
+    function getSession() {
+        return $localStorage.session;
     }
 
 }

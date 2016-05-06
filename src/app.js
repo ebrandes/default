@@ -17,7 +17,6 @@ angular.module('app', dependencies)
 
         $rootScope.$on('$stateChangeSuccess',
             function (event, toState, toParams, fromState, fromParams, options) {
-                console.log(event, toState, fromState);
                 if (toState.name != 'login') {
                     $rootScope.showMenu = true;
                 } else {
@@ -25,15 +24,17 @@ angular.module('app', dependencies)
                 }
             })
 
-        if (SessionService.session) {
-            console.log(SessionService.session);
+
+        var usuario = SessionService.getSession();
+        if (!usuario) {
+            $state.go('login');
         }
 
         $rootScope.isInEvent = false;
-        $state.go('login');
+        // $state.go('login');
     })
     .config(function ($urlRouterProvider, $alertProvider, $datepickerProvider, $timepickerProvider, $tooltipProvider, $tabProvider) {
-        $urlRouterProvider.otherwise('/');
+        $urlRouterProvider.otherwise('/eventos');
         //alerts
         angular.extend($alertProvider.defaults, {
             animation: 'am-fade-and-slide-top',
@@ -59,5 +60,5 @@ angular.module('app', dependencies)
         });
     })
     .constant('API', {
-        'url': 'http://192.168.0.76:3000/eventos/api/'
+        'url': 'http://192.168.0.77:3000/eventos/api/'
     })

@@ -1,7 +1,7 @@
 angular.module('app.modules')
     .controller('eventosCtrl', eventosCtrl);
 
-function eventosCtrl(HelperService, $scope, $rootScope, $modal, $templateCache) {
+function eventosCtrl($scope, $rootScope, $modal, $templateCache, ModalService, HelperService) {
     //variables
     this.listMode = false;
     this.eventoSelecionado = {};
@@ -35,10 +35,10 @@ function eventosCtrl(HelperService, $scope, $rootScope, $modal, $templateCache) 
 
 
     function excluirEvento(index) {
-        HelperService.openModalConfirmation({
+        ModalService.openModalConfirmation({
             content: 'Deseja realmente excluir o evento?',
             showCancel: true,
-            confirmFunction: function() {
+            confirmFunction: function () {
                 //this.eventos.split(index, 1);
                 console.log("Evento excluído com sucesso.");
             }

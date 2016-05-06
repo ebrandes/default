@@ -41,7 +41,7 @@ gulp.task('minifyTemplates', minifyTemplates);
 gulp.task('minifyScripts', minifyScripts);
 gulp.task('copyImgs', copyImgs);
 gulp.task('copyFonts', copyFonts);
-gulp.task('bs-reload', function() {
+gulp.task('bs-reload', function () {
     browserSync.reload();
 });
 
@@ -145,8 +145,8 @@ function minifyScripts() {
         .pipe(sourcemaps.init())
         .pipe(ngAnnotate())
         .pipe(ngFilesort())
-        .pipe(minifyJS())
         .pipe(concat('./vendor/vendor.min.js'))
+        .pipe(minifyJS())
         .pipe(sourcemaps.write())
         .pipe(filterJS.restore)
         .pipe(gulp.dest(paths.prod))

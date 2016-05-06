@@ -1,7 +1,7 @@
 angular.module('app.modules')
     .controller('loginCtrl', loginCtrl);
 
-function loginCtrl($state, $rootScope, HelperService, SessionService, LoginService) {
+function loginCtrl($state, $rootScope, AlertService, SessionService, LoginService) {
 
     //variables
     var alert;
@@ -20,16 +20,16 @@ function loginCtrl($state, $rootScope, HelperService, SessionService, LoginServi
             return;
         }
 
-        LoginService.doLogin(user, function(res) {
+        LoginService.doLogin(user, function (res) {
             if (res.success) {
                 if (res.usuario) {
-                    SessionService.setSession(res.data);
+                    SessionService.setSession(res.usuario);
                     $state.go("eventos");
                 } else {
                     if (alert) {
                         alert.hide();
                     }
-                    alert = HelperService.showAlert({
+                    alert = AlertService.showAlert({
                         container: ".box-errors-login",
                         type: 'danger',
                         placement: 'fixed',
@@ -41,7 +41,7 @@ function loginCtrl($state, $rootScope, HelperService, SessionService, LoginServi
                 if (alert) {
                     alert.hide();
                 }
-                alert = HelperService.showAlert({
+                alert = AlertService.showAlert({
                     container: ".box-errors-login",
                     type: 'danger',
                     placement: 'fixed',
@@ -49,6 +49,17 @@ function loginCtrl($state, $rootScope, HelperService, SessionService, LoginServi
                     content: 'Login ou senha inválidos.',
                 });
             }
+        }, function (err) {
+            if (alert) {
+                alert.hide();
+            }
+            alert = AlertService.showAlert({
+                container: ".box-errors-login",
+                type: 'danger',
+                placement: 'fixed',
+                animation: 'none',
+                content: 'Erro de conexão. Tente novamente mais tarde.',
+            });
         })
     }
 }
