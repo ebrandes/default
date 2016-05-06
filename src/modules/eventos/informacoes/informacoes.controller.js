@@ -22,7 +22,6 @@ function informacoesCtrl(HelperService, $log, $modal, $templateCache, $scope) {
         var modalScope = $scope.$new(true);
         vm.modalInformacoes.modal = $modal({
             template: $templateCache.get('eventos/informacoes/informacoes-form.modal.html'),
-            placement: 'center',
             scope: modalScope,
             controller: 'informacoesFormCtrl',
             controllerAs: 'vm',
