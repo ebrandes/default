@@ -1,0 +1,77 @@
+<div class="modal modal-informacoes" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"Taria-label="Close" ng-click="$hide()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">{{  (vm.acao === 'editar' ? 'Edição de ' : 'Nova ') + vm.tipo   }}</h4>
+            </div>
+            <div class="modal-body" ng-init="isLista = vm.tipo === 'lista'">
+                <form novalidate name="formInformacao">
+                    <div class="form-group" ng-class="{ 'has-error': formInformacao.nome.$touched && formInformacao.nome.$invalid }">
+                        <label for="nome">Nome</label>
+                        <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome" ng-model="vm.informacao.nome" required auto-focus>
+                        <div class="help-block pull-right" ng-messages="formInformacao.nome.$error" ng-if="formInformacao.nome.$touched">
+                            <p ng-message="required">Nome inválido</p>
+                        </div>
+                    </div>
+                    <div ng-if="vm.isTipo('lista')">
+                        <div class="row" ng-repeat="filho in vm.informacao.filhos track by $index">
+                            <div class="col col-xs-6">
+                                <div class="form-group">
+                                    <label for="nome">Nome</label>
+                                    <input type="text" class="form-control" id="nome" placeholder="Nome" ng-model="vm.informacao.filhos[$index].nome">
+                                </div>
+                            </div>
+                            <div class="col col-xs-6">
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Descrição</label>
+                                    <div class="row">
+                                        <div class="col col-xs-9">
+                                            <input type="text" class="form-control" id="descricao" placeholder="Descrição" ng-model="vm.informacao.filhos[$index].descricao">
+                                        </div>
+                                        <div class="col col-xs-3">
+                                            <button type="button" class="btn btn-danger" ng-click="vm.removerFilho(vm.informacao, vm.informacao.filhos[$index])">
+                                                <i class="fa fa-times" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-if="vm.isTipo('informacao')">
+                        <div class="form-group" ng-class="{ 'has-error': formInformacao.descricao.$touched && formInformacao.descricao.$invalid }">
+                            <label for="descricao">Descrição</label>
+                            <textarea id="descricao" class="form-control" name="descricao" cols="30" rows="10" ng-model="vm.informacao.descricao" required></textarea>
+                            <div class="help-block pull-right" ng-messages="formInformacao.descricao.$error" ng-if="formInformacao.descricao.$touched">
+                                <p ng-message="required">Descrição inválida</p>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col col-xs-6 text-left">
+                        <button type="button" class="btn btn-primary pull-left" ng-click="vm.adicionarFilho()" ng-if="vm.isTipo('lista')">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                            Adicionar
+                        </button>
+                    </div>
+                    <div class="col col-xs-6 text-right">
+                        <button type="button" class="btn btn-danger" ng-click="$hide()">
+                            <i class="fa fa-times" aria-hidden="true"></i>
+                            Cancelar
+                        </button>
+                        <button type="button" class="btn btn-primary" ng-disabled="formInformacao.$invalid" ng-click="vm.salvar(vm.informacao)">
+                            <i class="fa fa-check" aria-hidden="true"></i>
+                            Salvar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

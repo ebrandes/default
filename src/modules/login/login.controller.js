@@ -24,7 +24,7 @@ function loginCtrl($state, $rootScope, HelperService, SessionService, LoginServi
             if (res.success) {
                 if (res.usuario) {
                     SessionService.setSession(res.data);
-                    $state.go("main");
+                    $state.go("eventos");
                 } else {
                     if (alert) {
                         alert.hide();

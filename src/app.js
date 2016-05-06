@@ -11,14 +11,17 @@ var dependencies = [
     'angular-md5'
 ];
 angular.module('app', dependencies)
-    .run(function($state, $rootScope, $location, SessionService) {
+    .run(function ($state, $rootScope, $location, SessionService) {
 
-        $rootScope.$on('$stateChangeStart',
-            function(event, toState, toParams, fromState, fromParams, options) {
-                if ($location.$$path == '/login') {
-                    $rootScope.showMenu = false;
-                } else {
+        $rootScope.showMenu = false;
+
+        $rootScope.$on('$stateChangeSuccess',
+            function (event, toState, toParams, fromState, fromParams, options) {
+                console.log(event, toState, fromState);
+                if (toState.name != 'login') {
                     $rootScope.showMenu = true;
+                } else {
+                    $rootScope.showMenu = false;
                 }
             })
 
@@ -27,8 +30,9 @@ angular.module('app', dependencies)
         }
 
         $rootScope.isInEvent = false;
+        $state.go('login');
     })
-    .config(function($urlRouterProvider, $alertProvider, $datepickerProvider, $timepickerProvider, $tooltipProvider, $tabProvider) {
+    .config(function ($urlRouterProvider, $alertProvider, $datepickerProvider, $timepickerProvider, $tooltipProvider, $tabProvider) {
         $urlRouterProvider.otherwise('/');
         //alerts
         angular.extend($alertProvider.defaults, {
