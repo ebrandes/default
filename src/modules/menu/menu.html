@@ -115,22 +115,24 @@
 
     <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav side-nav">
-            <li ui-sref="eventos" ui-sref-active="active">
+            <li ui-sref="eventos" ui-sref-active="active" ng-if="!isInEvent">
                 <a><i class="fa fa-calendar-o"></i> Eventos</a>
             </li>
             <li ui-sref="eventos.dashboard" ui-sref-active="active" ng-if="isInEvent">
-                <a class="nav-item-collapse">Dashboard</a>
+                <a><i class="fa fa-arrow-circle-right"></i>Dashboard</a>
             </li>
             <li ui-sref="informacoes" ui-sref-active="active" ng-if="isInEvent">
-                <a class="nav-item-collapse">Informações</a>
+                <a><i class="fa fa-arrow-circle-right"></i>Informações</a>
             </li>
             <li ui-sref="eventos.noticias" ui-sref-active="active" ng-if="isInEvent">
-                <a class="nav-item-collapse">Notícias</a>
+                <a> <i class="fa fa-arrow-circle-right"></i>Notícias</a>
             </li>
-            <li ui-sref="usuarios" ui-sref-active="active">
+            <li ui-sref="usuarios" ui-sref-active="active" ng-if="!isInEvent">
                 <a><i class="fa fa-users"></i> Usuários</a>
             </li>
-
+            <li ui-sref="eventos" ng-if="isInEvent" class="item-logout">
+                <a><i class="fa fa-sign-out"></i> Sair do evento</a>
+            </li>
         </ul>
     </div>
 

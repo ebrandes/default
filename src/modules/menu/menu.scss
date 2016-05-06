@@ -3,3 +3,16 @@
         padding-top: 5px;
     }
 }
+.navbar-collapse {
+    li {
+        i {
+            margin-right: 7px;
+        }
+    }
+    .item-logout {
+        position: absolute;
+        bottom: 0;
+        color: #fff;
+        cursor: pointer;
+    }
+}
