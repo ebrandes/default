@@ -8,7 +8,8 @@ var dependencies = [
     'ngStorage',
     'ngMessages',
     'ngFileUpload',
-    'angular-md5'
+    'angular-md5',
+    'textAngular'
 ];
 angular.module('app', dependencies)
     .run(function ($state, $rootScope, $location, SessionService) {
