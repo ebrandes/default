@@ -2,7 +2,7 @@ angular
     .module('app.modules')
     .controller('informacoesCtrl', informacoesCtrl);
 
-function informacoesCtrl(HelperService, $log, $modal, $templateCache, $scope) {
+function informacoesCtrl($log, $modal, $templateCache, $scope, ModalService) {
     var vm = this;
     var tiposInformacoes = ['lista', 'informacao'];
 
@@ -22,7 +22,6 @@ function informacoesCtrl(HelperService, $log, $modal, $templateCache, $scope) {
         var modalScope = $scope.$new(true);
         vm.modalInformacoes.modal = $modal({
             template: $templateCache.get('eventos/informacoes/informacoes-form.modal.html'),
-            placement: 'center',
             scope: modalScope,
             controller: 'informacoesFormCtrl',
             controllerAs: 'vm',
@@ -50,7 +49,7 @@ function informacoesCtrl(HelperService, $log, $modal, $templateCache, $scope) {
     }
 
     function excluirInformacao(informacao) {
-        HelperService.openModalConfirmation({
+        ModalService.openModalConfirmation({
             content: 'Deseja realmente excluir esta informação?',
             showCancel: true,
             confirmFunction: function() {
