@@ -1,11 +1,23 @@
 #noticiasPage {
+    .row {
+        .col-xs-6 {
+            .tabs {
+                margin-top: 20px;
+            }
+            .nav-tabs>li>a {
+                cursor: pointer;
+            }
+            .btn-primary {
+                margin-top: 20px;
+            }
+        }
+    }
     .buttons-block {
         display: table-cell;
+        vertical-align: middle;
         .btn-danger {
-            margin: 15px 0 5px 0;
-        }
-        .btn-warning {
-            margin-left: 2px;
+            margin: 5px 0 0px;
+            vertical-align: middle;
         }
     }
 }

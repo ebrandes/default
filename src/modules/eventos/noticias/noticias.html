@@ -1,53 +1,59 @@
 <div id="noticiasPage">
     <div class="row">
         <div class="col-xs-6">
-            <h2> Notícias </h2>
+            <div class="tabs" bs-active-pane="vm.tabs.activeTab" bs-tabs>
+                <div ng-repeat="tab in vm.tabs" data-title="{{ tab.title }}" name="{{ tab.title }}" ng-click="mudarTab();" bs-pane>
+                </div>
+            </div>
         </div>
         <div class="col-xs-6">
-            <button style="margin-top:20px" type="button" name="button" class="btn btn-primary pull-right" ng-click="vm.novaNoticia()">
+            <button type="button" name="button" class="btn btn-primary pull-right" ng-click="vm.novaNoticia()">
                 Nova noticia
             </button>
         </div>
     </div>
+
     <div>
-        <div class="media">
-            <div class="media-left media-middle">
-                <a href="#">
-                    <img class="media-object" src="http://placehold.it/80x80" alt="...">
-                </a>
-            </div>
-            <div class="media-body">
-                <h4 class="media-heading">Middle aligned media</h4>
-                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras
-                    purus odio, vestibulum in vulputate at, tempus viverra turpis.</p>
-            </div>
-            <div class="buttons-block">
-                <button type="button" name="button" class="btn btn-danger btn-xs" ng-click="vm.excluirNoticia(index)">
-                    Excluir
-                </button>
-                <button type="button" name="button" class="btn btn-warning btn-xs">
-                    Editar
-                </button>
+        <div ng-if="vm.tabs.activeTab === 'Notícias'">
+            <div class="media" ng-repeat="noticia in vm.noticias" ng-if="noticia.backoffice == 1">
+                <div class="media-left media-middle">
+                    <a href="#">
+                        <img class="media-object" ng-src="{{noticia.imagem}}" alt="...">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">{{noticia.titulo}}</h4>
+                    <p>{{noticia.descricao}}</p>
+                </div>
+                <div class="buttons-block">
+                    <button class="btn btn-warning" ng-click="vm.novaNoticia(noticia);">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </button>
+                    <button class="btn btn-danger" ng-click="vm.excluirNoticia(index)">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </button>
+                </div>
             </div>
         </div>
-        <div class="media">
-            <div class="media-left media-middle">
-                <a href="#">
-                    <img class="media-object" src="http://placehold.it/80x80" alt="...">
-                </a>
-            </div>
-            <div class="media-body">
-                <h4 class="media-heading">Middle aligned media</h4>
-                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras
-                    purus odio, vestibulum in vulputate at, tempus viverra turpis.</p>
-            </div>
-            <div class="buttons-block">
-                <button type="button" name="button" class="btn btn-danger btn-xs" ng-click="vm.excluirNoticia(index)">
-                    Excluir
-                </button>
-                <button type="button" name="button" class="btn btn-warning btn-xs">
-                    Editar
-                </button>
+        <div ng-if="vm.tabs.activeTab === 'Posts'">
+            <div class="media" ng-repeat="post in vm.noticias" ng-if="post.backoffice == 0">
+                <div class="media-left media-middle">
+                    <a href="#">
+                        <img class="media-object" ng-src="{{post.imagem}}" alt="...">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">{{post.titulo}}</h4>
+                    <p>{{post.descricao}}</p>
+                </div>
+                <div class="buttons-block">
+                    <button class="btn btn-warning" ng-click="vm.novaNoticia(post);">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </button>
+                    <button class="btn btn-danger" ng-click="vm.excluirNoticia(index)">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
