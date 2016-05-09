@@ -32,7 +32,7 @@ angular.module('app', dependencies)
         }
 
         $rootScope.isInEvent = false;
-        // $state.go('login');
+        $state.go('eventos.participantes', { id: 1});
     })
     .config(function ($urlRouterProvider, $alertProvider, $datepickerProvider, $timepickerProvider, $tooltipProvider, $tabProvider) {
         $urlRouterProvider.otherwise('/eventos');
@@ -61,5 +61,5 @@ angular.module('app', dependencies)
         });
     })
     .constant('API', {
-        'url': 'http://192.168.0.77:3000/eventos/api/'
+        'url': 'http://192.168.0.99:3000/eventos/api/'
     })

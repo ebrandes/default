@@ -5,11 +5,12 @@ angular.module('app.modules')
                 url: '/:id/participantes',
                 views: {
                     '@': {
-                        templateProvider: function ($templateCache) {
-                            return $templateCache.get('eventos/participantes/participantes.html');
-                        },
-                        controller: 'participantesCtrl',
-                        controllerAs: 'vm'
+                        template: '<participantes></participantes>'
+                        //templateProvider: function ($templateCache) {
+                        //    return '<participantes></participantes>'; //$templateCache.get('eventos/participantes/participantes.html');
+                        //},
+                        //controller: 'participantesCtrl',
+                        //controllerAs: 'vm'
                     }
                 }
             })
