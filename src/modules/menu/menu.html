@@ -112,12 +112,39 @@
             <li ui-sref="eventos.noticias" ui-sref-active="active" ng-if="isInEvent">
                 <a> <i class="fa fa-arrow-circle-right"></i>Notícias</a>
             </li>
+            <li ui-sref="eventos.agenda" ui-sref-active="active" ng-if="isInEvent">
+                <a> <i class="fa fa-arrow-circle-right"></i>Agenda</a>
+            </li>
+            <li ui-sref="eventos.galeria" ui-sref-active="active" ng-if="isInEvent">
+                <a> <i class="fa fa-arrow-circle-right"></i>Galeria</a>
+            </li>
+            <li ui-sref="eventos.pesquisa" ui-sref-active="active" ng-if="isInEvent">
+                <a> <i class="fa fa-arrow-circle-right"></i>Pesquisa de Satisfação</a>
+            </li>
+            <li ui-sref="eventos.arquivos" ui-sref-active="active" ng-if="isInEvent">
+                <a> <i class="fa fa-arrow-circle-right"></i>Material de apoio</a>
+            </li>
+            <li ui-sref="eventos.notificacoes" ui-sref-active="active" ng-if="isInEvent">
+                <a><i class="fa fa-arrow-circle-right"></i>Notificações</a>
+            </li>
+            <li ui-sref="eventos.paginas" ui-sref-active="active" ng-if="isInEvent">
+                <a> <i class="fa fa-arrow-circle-right"></i>Páginas dinâmicas</a>
+            </li>
+            <li ui-sref="eventos.relatorio" ui-sref-active="active" ng-if="isInEvent">
+                <a> <i class="fa fa-arrow-circle-right"></i>Relatórios</a>
+            </li>
+            <li ui-sref="eventos.administradores" ui-sref-active="active" ng-if="isInEvent">
+                <a> <i class="fa fa-arrow-circle-right"></i>Administradores</a>
+            </li>
+            <!--<li ui-sref="eventos.informacoes" ui-sref-active="active" ng-if="isInEvent">
+                <a> <i class="fa fa-arrow-circle-right"></i>Informações adicionais</a>
+            </li>-->
             <li ui-sref="usuarios" ui-sref-active="active" ng-if="!isInEvent">
                 <a><i class="fa fa-users"></i> Usuários</a>
             </li>
-            <li ui-sref="eventos" ng-if="isInEvent" class="item-logout">
+            <!--<li ui-sref="eventos" ng-if="isInEvent" class="item-logout">
                 <a><i class="fa fa-sign-out"></i> Sair do evento</a>
-            </li>
+            </li>-->
         </ul>
     </div>
 

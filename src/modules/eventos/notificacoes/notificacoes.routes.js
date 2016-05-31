@@ -1,14 +1,14 @@
 angular.module('app.modules')
     .config(function ($stateProvider) {
         $stateProvider
-            .state('eventos.agenda', {
-                url: '/:id/agenda',
+            .state('eventos.notificacoes', {
+                url: '/:id/notificacoes',
                 views: {
                     '@': {
                         templateProvider: function ($templateCache) {
-                            return $templateCache.get('eventos/agenda/agenda.html');
+                            return $templateCache.get('eventos/notificacoes/notificacoes.html');
                         },
-                        controller: 'agendaCtrl',
+                        controller: 'notificacoesCtrl',
                         controllerAs: 'vm'
                     }
                 }

@@ -1,0 +1,60 @@
+<div class="modal" id="notificacaoCadastroPage" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <form class="form-horizontal no-gutter-left" novalidate name="frmNotificacao">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" ng-click="$hide()">&times;</button>
+                    <h4 class="modal-title">Notificações</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group" ng-class="{ 'has-error': frmNotificacao.notificacao.$touched && frmNotificacao.notificacao.$invalid }">
+                        <label for="notificacao" class="col-sm-2 control-label">Notificação</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="notificacao" id="notificacao" ng-model="vm.notificacao" required>
+                        </div>
+                        <div class="help-block col-sm-offset-2 pull-right" ng-messages="frmNotificacao.notificacao.$error" ng-if="frmNotificacao.notificacao.$touched">
+                            <p ng-message="required">Campo inválido.</p>
+                        </div>
+                    </div>
+                    <div class="form-group" ng-class="{ 'has-error': frmNotificacao.agendamento.$touched   && frmNotificacao.agendamento.$invalid }">
+                        <div class="checkbox col-sm-offset-2 col-sm-10">
+                            <label data-title="Agendar notificação" bs-tooltip data-placement="right">
+                                        <input type="checkbox" name="agendamento" ng-model="vm.agendamento" /> Agendar notificação
+                                    </label>
+                        </div>
+                    </div>
+
+                    <div ng-if="vm.agendamento" class="form-group" ng-class="{ 'has-error': frmNotificacao.data.$touched && frmNotificacao.data.$invalid }">
+                        <label class="control-label col-sm-2">Data <i class="fa fa-calendar"></i> </label>
+                        <div class="col-sm-10 dateform">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control pull-right" ng-model="vm.data" data-min-date="{{vm.data}}" data-autoclose="1" placeholder="Data"
+                                        bs-datepicker date-format="dd/MM/yyyy" iconLeft="fa.fa-arrow-left" required>
+                                    <div class="help-block pull-right" ng-messages="frmNotificacao.data.$error" ng-if="frmNotificacao.data.$touched">
+                                        <p ng-show="frmNotificacao.data.$invalid">Campo data inválida.</p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-5">
+                                    <input type="text" name="data" class="form-control" ng-model="vm.data" data-time-format="HH:mm" data-autoclose="1" placeholder="Hora"
+                                        bs-timepicker required style="max-width:50%">
+                                    <div class="help-block pull-right" ng-messages="frmNotificacao.data.$error" ng-if="frmNotificacao.data.$touched">
+                                        <p ng-show="frmNotificacao.data.$invalid">Campo hora inválida.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" ng-click="$hide()">
+                        Cancelar
+                    </button>
+                    <button type="button" class="btn btn-primary" ng-disabled="frmNotificacao.$invalid" ng-click="vm.salvar()">
+                        Salvar Notificação
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

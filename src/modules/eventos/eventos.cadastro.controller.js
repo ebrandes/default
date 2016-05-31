@@ -15,15 +15,20 @@ function eventoCadastroCtrl(HelperService, $modal, evento) {
         this.permitirPosts = (evento.permitirPosts) ? evento.permitirPosts : 'false';
         this.permitirImagens = (evento.permitirImagens) ? evento.permitirImagens : 'false';
         this.perguntasPrivadas = (evento.perguntasPrivadas) ? evento.perguntasPrivadas : 'false';
+        this.permitirOptativas = (evento.permitirOptativas) ? evento.permitirOptativas : 'false';
+        this.informacao = {};
     }
     this.tabAtiva = "evento";
+    
     //definitions
     this.closeModal = closeModal;
     this.removeImage = removeImage;
     this.proximaTab = proximaTab;
+    this.adicionarFilho = adicionarFilho;
+    
     //functions
     function proximaTab() {
-        if (this.tabAtiva == "config") {
+        if (this.tabAtiva == "info") {
             HelperService.showAlert({
                 content: "Salvando evento..."
             });
@@ -39,5 +44,11 @@ function eventoCadastroCtrl(HelperService, $modal, evento) {
     function closeModal() {
         $modal.hide();
     }
-
+    
+    function adicionarFilho() {
+        vm.informacao.filhos.unshift({
+            nome: '',
+            descricao: ''
+        });
+    }
 }

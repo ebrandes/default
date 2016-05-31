@@ -1,0 +1,49 @@
+<div class="modal" id="galeriaCadastroPage" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <form class="form-horizontal no-gutter-left" novalidate name="frmGaleria">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" ng-click="$hide()">&times;</button>
+                    <h4 class="modal-title">Galeria</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group" ng-class="{ 'has-error': frmGaleria.data.$touched && frmGaleria.data.$invalid }">
+                        <label class="control-label col-sm-2">Data <i class="fa fa-calendar"></i> </label>
+                        <div class="col-sm-10 dateform">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control pull-right" ng-model="vm.data" data-min-date="{{vm.data}}" data-autoclose="1" placeholder="Data"
+                                        bs-datepicker date-format="dd/MM/yyyy" iconLeft="fa.fa-arrow-left" required>
+                                    <div class="help-block pull-right" ng-messages="frmGaleria.data.$error" ng-if="frmGaleria.data.$touched">
+                                        <p ng-show="frmGaleria.data.$invalid">Campo data inválida.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group" ng-class="{ 'has-error': frmGaleria.file.$touched && frmGaleria.file.$invalid }">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <input type="file" ngf-select="" ng-model="vm.imagem" name="file" ngf-accept="'image/*'" required value="Selecine uma foto">
+                        </div>
+                        <div class="col-sm-12 upload-preview" ng-if="vm.imagem">
+                            <span class="fa fa-times fa-2x remove" ng-click="vm.removeImage()" data-title="Excluir imagem" bs-tooltip data-placement="left"></span>
+                            <img ngf-src="vm.imagem" class="center-block thumbnail img-responsive">
+                        </div>
+                        <div class="col-sm-offset-2 help-block pull-right" ng-messages="frmGaleria.file.$error" ng-if="frmGaleria.file.$touched">
+                            <p ng-show="frmGaleria.file.$invalid">Campo imagem inválido.</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" ng-click="$hide()">
+                        Cancelar
+                    </button>
+                    <button type="button" class="btn btn-primary" ng-disabled="frmGaleria.$invalid" ng-click="vm.salvar()">
+                        Salvar fotos
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

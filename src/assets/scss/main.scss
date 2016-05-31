@@ -506,6 +506,7 @@ html {
 .padding { padding: 10px; }
 .padding-horizontal { padding: 0 10px }
 .padding-vertical { padding: 10px 0 }
+.padding-0 { padding: 0}
 .vcenter { vertical-align: middle !important; }
 //loader
 .loader-background {
@@ -550,4 +551,21 @@ html {
     .side-nav {
         top: 56px !important;
     }
+}
+
+.table {
+    margin: 0;
+}
+.table>tbody>tr>td, 
+.table>tbody>tr>th, 
+.table>tfoot>tr>td, 
+.table>tfoot>tr>th, 
+.table>thead>tr>td,
+.table>thead>tr>th {
+    border-top: 0px;
+    border-bottom: 1px solid #ddd;
+    vertical-align: middle;
+}
+.td-actions {
+    width: 100px
 }

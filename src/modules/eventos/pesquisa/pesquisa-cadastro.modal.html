@@ -1,0 +1,61 @@
+<div class="modal" id="pesquisaCadastroPage" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <form class="form-horizontal no-gutter-left" novalidate name="frmPesquisa">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" ng-click="$hide()">&times;</button>
+                    <h4 class="modal-title"> Pesquisa de Satisfação </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group" ng-class="{ 'has-error': frmPesquisa.pergunta.$touched && frmPesquisa.pergunta.$invalid }">
+                        <label for="pergunta" class="col-sm-2 control-label">Pergunta</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="pergunta" id="pergunta" ng-model="vm.pergunta" placeholder="Ex: O que você achou do evento?"
+                                required>
+                        </div>
+                        <div class="help-block col-sm-offset-2 pull-right" ng-messages="frmPesquisa.pergunta.$error" ng-if="frmPesquisa.pergunta.$touched">
+                            <p ng-message="required">Campo pergunta inválido.</p>
+                        </div>
+                    </div>
+                    <div class="form-group" ng-class="{ 'has-error': frmPesquisa.notificacao.$touched   && frmPesquisa.notificacao.$invalid }">
+                        <div class="checkbox col-sm-offset-2 col-sm-10">
+                            <label data-title="Envie uma notificação" bs-tooltip data-placement="right">
+                                <input type="checkbox" name="notificacao" ng-model="vm.sendNotification"> Enviar notificação
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-offset-2 col-sm-10">Perguntas optativas</label>
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <label class="radio-inline">
+                                <input type="radio" ng-model="vm.optativa" name="optativa" value="true"> Sim
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" ng-model="vm.optativa" name="optativa" value="false"> Não
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group" ng-if="vm.optativa =='true'" ng-class="{ 'has-error': frmPesquisa.opcao.$touched && frmPesquisa.opcao.$invalid }">
+                        <div class="col-sm-offset-2 col-sm-7">
+                            <input type="text" class="form-control" placeholder="Opção de resposta" ng-model="vm.opcao" name="opcao" required/>
+                        </div>
+                        <button type="button" class="btn btn-primary col-sm-2">
+                            Adicionar
+                        </button>
+                        <div class="help-block col-sm-offset-2 pull-right" ng-messages="frmPesquisa.opcao.$error" ng-if="frmPesquisa.opcao.$touched">
+                            <p ng-message="required">Campo opção inválido.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" ng-click="$hide()">
+                        Cancelar
+                    </button>
+                    <button type="button" class="btn btn-primary" ng-disabled="frmPesquisa.$invalid" ng-click="vm.salvar()">
+                        Salvar Pesquisa
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
