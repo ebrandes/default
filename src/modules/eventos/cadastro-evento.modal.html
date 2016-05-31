@@ -12,74 +12,60 @@
                     <div bs-tabs data-bs-active-pane="vm.tabAtiva">
 
                         <div data-title="Evento" name="evento" disabled="false" bs-pane>
-                            <div class="form-group"
-                                 ng-class="{ 'has-error': frmEvento.titulo.$touched && frmEvento.titulo.$invalid }">
+                            <div class="form-group" ng-class="{ 'has-error': frmEvento.titulo.$touched && frmEvento.titulo.$invalid }">
                                 <label for="titulo" class="col-sm-2 control-label">Título</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="titulo" id="titulo"
-                                           ng-model="vm.titulo" placeholder="Título" required>
+                                    <input type="text" class="form-control" name="titulo" id="titulo" ng-model="vm.titulo" placeholder="Título" required>
                                 </div>
-                                <div class="help-block col-sm-offset-2 pull-right" ng-messages="frmEvento.titulo.$error"
-                                     ng-if="frmEvento.titulo.$touched">
+                                <div class="help-block col-sm-offset-2 pull-right" ng-messages="frmEvento.titulo.$error" ng-if="frmEvento.titulo.$touched">
                                     <p ng-message="required">Campo título inválido.</p>
                                 </div>
                             </div>
 
 
-                            <div class="form-group"
-                                 ng-class="{ 'has-error': frmEvento.dataInicial.$touched && frmEvento.dataInicial.$invalid }">
+                            <div class="form-group" ng-class="{ 'has-error': frmEvento.dataInicial.$touched && frmEvento.dataInicial.$invalid }">
                                 <label class="control-label col-sm-2">De <i class="fa fa-calendar"></i> </label>
                                 <div class="col-sm-10 dateform">
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control pull-right" ng-model="vm.dataInicial"
-                                               data-max-date="{{vm.dataFinal}}" data-autoclose="1"
-                                               placeholder="Data inicial" bs-datepicker date-format="dd/MM/yyyy"
-                                               iconLeft="fa.fa-arrow-left" required>
-                                        <div class="help-block pull-right" ng-messages="frmEvento.dataInicial.$error"
-                                             ng-if="frmEvento.dataInicial.$touched">
+                                        <input type="text" class="form-control pull-right" ng-model="vm.dataInicial" data-max-date="{{vm.dataFinal}}" data-autoclose="1"
+                                            placeholder="Data inicial" bs-datepicker date-format="dd/MM/yyyy" iconLeft="fa.fa-arrow-left"
+                                            required>
+                                        <div class="help-block pull-right" ng-messages="frmEvento.dataInicial.$error" ng-if="frmEvento.dataInicial.$touched">
                                             <p ng-show="frmEvento.dataInicial.$invalid">Campo data inválida.</p>
                                         </div>
                                     </div>
                                     <div class="col-sm-5">
-                                        <input type="text" name="dataInicial" class="form-control"
-                                               ng-model="vm.dataInicial" data-time-format="HH:mm" data-autoclose="1"
-                                               placeholder="Hora" bs-timepicker required style="max-width:50%">
-                                        <div class="help-block pull-right" ng-messages="frmEvento.dataInicial.$error"
-                                             ng-if="frmEvento.dataInicial.$touched">
+                                        <input type="text" name="dataInicial" class="form-control" ng-model="vm.dataInicial" data-time-format="HH:mm" data-autoclose="1"
+                                            placeholder="Hora" bs-timepicker required style="max-width:50%">
+                                        <div class="help-block pull-right" ng-messages="frmEvento.dataInicial.$error" ng-if="frmEvento.dataInicial.$touched">
                                             <p ng-show="frmEvento.dataInicial.$invalid">Campo hora inválida.</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="form-group"
-                                 ng-class="{ 'has-error': frmEvento.dataFinal.$touched && frmEvento.dataFinal.$invalid }">
+                            <div class="form-group" ng-class="{ 'has-error': frmEvento.dataFinal.$touched && frmEvento.dataFinal.$invalid }">
                                 <label class="control-label col-sm-2">Até <i class="fa fa-calendar"></i> </label>
                                 <div class="col-sm-10 dateform">
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control pull-right" ng-model="vm.dataFinal"
-                                               data-min-date="{{vm.dataInicial}}" data-autoclose="1"
-                                               placeholder="Data final" bs-datepicker date-format="dd/MM/yyyy"
-                                               iconLeft="fa.fa-arrow-left" required>
-                                        <div class="help-block pull-right" ng-messages="frmEvento.dataFinal.$error"
-                                             ng-if="frmEvento.dataFinal.$touched">
+                                        <input type="text" class="form-control pull-right" ng-model="vm.dataFinal" data-min-date="{{vm.dataInicial}}" data-autoclose="1"
+                                            placeholder="Data final" bs-datepicker date-format="dd/MM/yyyy" iconLeft="fa.fa-arrow-left"
+                                            required>
+                                        <div class="help-block pull-right" ng-messages="frmEvento.dataFinal.$error" ng-if="frmEvento.dataFinal.$touched">
                                             <p ng-show="frmEvento.dataFinal.$invalid">Campo data inválida.</p>
                                         </div>
                                     </div>
                                     <div class="col-sm-5">
-                                        <input type="text" name="dataFinal" class="form-control" ng-model="vm.dataFinal"
-                                               data-time-format="HH:mm" data-autoclose="1" placeholder="Hora"
-                                               bs-timepicker required style="max-width:50%">
-                                        <div class="help-block pull-right" ng-messages="frmEvento.dataFinal.$error"
-                                             ng-if="frmEvento.dataFinal.$touched">
+                                        <input type="text" name="dataFinal" class="form-control" ng-model="vm.dataFinal" data-time-format="HH:mm" data-autoclose="1"
+                                            placeholder="Hora" bs-timepicker required style="max-width:50%">
+                                        <div class="help-block pull-right" ng-messages="frmEvento.dataFinal.$error" ng-if="frmEvento.dataFinal.$touched">
                                             <p ng-show="frmEvento.dataFinal.$invalid">Campo hora inválida.</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="form-group"
-                                 ng-class="{ 'has-error': frmEvento.destaque.$touched   && frmEvento.destaque.$invalid }">
+                            <div class="form-group" ng-class="{ 'has-error': frmEvento.destaque.$touched   && frmEvento.destaque.$invalid }">
                                 <div class="checkbox col-sm-offset-2 col-sm-10">
                                     <label data-title="Marque o evento como destaque" bs-tooltip data-placement="right">
                                         <input type="checkbox" name="destaque" ng-model="vm.destaque"> Evento destaque
@@ -87,32 +73,25 @@
                                 </div>
                             </div>
 
-                            <div class="form-group"
-                                 ng-class="{ 'has-error': frmEvento.file.$touched && frmEvento.file.$invalid }">
+                            <div class="form-group" ng-class="{ 'has-error': frmEvento.file.$touched && frmEvento.file.$invalid }">
                                 <div class="col-sm-offset-2 col-sm-10">
-                                    <input type="file" ngf-select="" ng-model="vm.imagem" name="file"
-                                           ngf-accept="'image/*'" required value="Selecine uma foto">
+                                    <input type="file" ngf-select="" ng-model="vm.imagem" name="file" ngf-accept="'image/*'" required value="Selecine uma foto">
                                 </div>
                                 <div class="col-sm-12 upload-preview" ng-if="vm.imagem">
-                                    <span class="fa fa-times fa-2x remove" ng-click="vm.removeImage()"
-                                          data-title="Excluir imagem" bs-tooltip data-placement="left"></span>
+                                    <span class="fa fa-times fa-2x remove" ng-click="vm.removeImage()" data-title="Excluir imagem" bs-tooltip data-placement="left"></span>
                                     <img ngf-src="vm.imagem" class="center-block thumbnail img-responsive">
                                 </div>
-                                <div class="help-block col-sm-offset-2 pull-right" ng-messages="frmEvento.file.$error"
-                                     ng-if="frmEvento.file.$touched">
+                                <div class="help-block col-sm-offset-2 pull-right" ng-messages="frmEvento.file.$error" ng-if="frmEvento.file.$touched">
                                     <p ng-show="frmEvento.file.$invalid">Campo imagem inválido.</p>
                                 </div>
                             </div>
 
-                            <div class="form-group"
-                                 ng-class="{ 'has-error': frmEvento.descricao.$touched && frmEvento.descricao.$invalid }">
+                            <div class="form-group" ng-class="{ 'has-error': frmEvento.descricao.$touched && frmEvento.descricao.$invalid }">
                                 <label for="descricao" class="col-sm-2 control-label">Descricao</label>
                                 <div class="col-sm-10">
-                                    <text-angular ng-model="vm.descricao" name="descricao"
-                                                  ng-required="true"></text-angular>
+                                    <text-angular ng-model="vm.descricao" name="descricao" ng-required="true"></text-angular>
                                 </div>
-                                <div class="help-block col-sm-offset-2 pull-right"
-                                     ng-messages="frmEvento.descricao.$error" ng-if="frmEvento.descricao.$touched">
+                                <div class="help-block col-sm-offset-2 pull-right" ng-messages="frmEvento.descricao.$error" ng-if="frmEvento.descricao.$touched">
                                     <p ng-show="frmEvento.descricao.$invalid">Campo descricao inválido.</p>
                                 </div>
                             </div>
@@ -121,11 +100,9 @@
                         <!-- fim tab 1 -->
 
                         <!-- inicio tab 2 -->
-                        <div data-title="Configurações" disabled="frmEvento.$invalid || !frmEvento.$touched"
-                             name="config" bs-pane>
+                        <div data-title="Configurações" disabled="frmEvento.$invalid || !frmEvento.$touched" name="config" bs-pane>
                             <h4>Configurações de notícias</h4>
-                            <div class="form-group sub-radio"
-                                 ng-class="{ 'has-error': frmEvento.permitirPosts.$touched && frmEvento.permitirPosts.$invalid }">
+                            <div class="form-group sub-radio" ng-class="{ 'has-error': frmEvento.permitirPosts.$touched && frmEvento.permitirPosts.$invalid }">
                                 <div class="col-md-12">
                                     <label class="control-label" for=""> Permitir posts de usuários</label>
                                 </div>
@@ -141,8 +118,7 @@
                                 </div>
                             </div>
 
-                            <div ng-if="vm.permitirPosts == 'true'" class="form-group sub-radio"
-                                 ng-class="{ 'has-error': frmEvento.permitirPosts.$touched && frmEvento.permitirPosts.$invalid }">
+                            <div ng-if="vm.permitirPosts == 'true'" class="form-group sub-radio" ng-class="{ 'has-error': frmEvento.permitirPosts.$touched && frmEvento.permitirPosts.$invalid }">
                                 <div class="col-md-12">
                                     <label class="control-label" for=""> Permitir imagens em posts </label>
                                 </div>
@@ -159,8 +135,7 @@
                             </div>
 
                             <h4>Configuração Pergunte ao palestrante</h4>
-                            <div class="form-group sub-radio"
-                                 ng-class="{ 'has-error': frmEvento.permitirPosts.$touched && frmEvento.permitirPosts.$invalid }">
+                            <div class="form-group sub-radio" ng-class="{ 'has-error': frmEvento.permitirPosts.$touched && frmEvento.permitirPosts.$invalid }">
                                 <div class="col-md-12">
                                     <label class="control-label" for=""> Perguntas privadas </label>
                                 </div>
@@ -178,18 +153,63 @@
 
                         </div>
                         <!-- fim tab 2 -->
+
+                        <!-- inicio tab 3 -->
+                        <div data-title="Informações adicionais" disabled="frmEvento.$invalid || !frmEvento.$touched" name="info" bs-pane>
+                            <!--<h4>Informações adicionais</h4>-->
+                            <div class="form-group" ng-class="{ 'has-error': frmEvento.infoDescricao.$touched && frmEvento.infoDescricao.$invalid }">
+                                <label for="infoDescricao" class="col-sm-4 control-label">Título da Informação</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="infoDescricao" id="infoDescricao" ng-model="vm.infoDescricao" placeholder="Ex: Qual o tamanho da sua camiseta?">
+                                </div>
+                            </div>
+
+                            <div class="form-group" ng-class="{ 'has-error': frmEvento.permitirOptativas.$touched && frmEvento.permitirOptativas.$invalid }">
+                                <label class="col-md-4 control-label"> Resposta optativa</label>
+                                <div class="col-md-8">
+                                    <label class="radio-inline">
+                                        <input type="radio" ng-model="vm.permitirOptativas" name="permitirOptativas"
+                                               value="true"> Sim
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" ng-model="vm.permitirOptativas" name="permitirOptativas"
+                                               value="false"> Não
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group" ng-if="vm.permitirOptativas==='true'">
+                                <div class="row">
+                                    <div class="col-xs-6 col-sm-offset-4">
+                                        <input type="text" class="form-control" placeholder="Ex: Tamanho G" ng-model="vm.informacao.filhos[$index].descricao">
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <button type="button" class="btn btn-danger" ng-click="vm.removerFilho(vm.informacao, vm.informacao.filhos[$index])">
+                                            <i class="fa fa-times" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- fim tab 3 -->
+
                     </div>
 
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" ng-click="$hide()">
-                        Cancelar
+                    <div class="col col-xs-6 text-left">
+                        <button type="button" class="btn btn-primary pull-left" ng-click="vm.adicionarFilho()" ng-if="vm.permitirOptativas==='true'">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                            Adicionar
+                        </button>
+                    </div>
+                    <div class="col col-xs-6 text-right">
+                        <button type="button" class="btn btn-default" ng-click="$hide()">Cancelar</button>
+                        <button type="button" class="btn btn-primary" ng-disabled="frmEvento.$invalid" ng-click="vm.proximaTab()">
+                        {{(vm.tabAtiva != 'info') ? 'Próximo' : 'Salvar evento'}}
                     </button>
-                    <button type="button" class="btn btn-primary" ng-disabled="frmEvento.$invalid"
-                            ng-click="vm.proximaTab()">
-                        {{(vm.tabAtiva == 'evento') ? 'Próximo' : 'Salvar evento.'}}
-                    </button>
+                    </div>
                 </div>
             </div>
         </form>

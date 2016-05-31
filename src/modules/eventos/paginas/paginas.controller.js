@@ -1,8 +1,7 @@
 angular.module('app.modules')
-    .controller('pesquisaCtrl', pesquisaCtrl);
+    .controller('paginasCtrl', paginasCtrl);
 
-function pesquisaCtrl($scope, $modal, $templateCache, ModalService, HelperService) {
-
+function paginasCtrl($scope, $modal, $templateCache, ModalService, HelperService) {
     // variaveis
 
     // definição
@@ -10,7 +9,7 @@ function pesquisaCtrl($scope, $modal, $templateCache, ModalService, HelperServic
     this.buscar = buscar;
     this.listar = listar;
     this.excluir = excluir;
-    this.novaPesquisa = novaPesquisa;
+    this.novaPagina = novaPagina;
 
     // implementação
     function salvar() {
@@ -28,18 +27,17 @@ function pesquisaCtrl($scope, $modal, $templateCache, ModalService, HelperServic
     function excluir() {
         return;
     }
-
-    function novaPesquisa() {
+    
+    function novaPagina() {
 
         var modalCadastro = $modal({
-                template: $templateCache.get('eventos/pesquisa/pesquisa-cadastro.modal.html'),
+                template: $templateCache.get('eventos/paginas/pagina-cadastro.modal.html'),
                 show: true,
-                controller: pesquisaCadastroCtrl,
+                controller: paginaCadastroCtrl,
                 controllerAs: 'vm',
                 locals: {
-                    pesquisa: this.pesquisaSelecionada
+                    pagina: this.pagina
                 }
             });
     }
-
 }

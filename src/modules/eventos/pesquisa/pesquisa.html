@@ -1,3 +1,39 @@
 <div id="pesquisaPage">
-    <h2>Pesquisa</h2>
+    <div class="row">
+        <div class="col-xs-6">
+            <h2> Pesquisa de Satisfação </h2>
+        </div>
+        <div class="col-xs-6">
+            <button style="margin-top:20px" type="button" name="button" class="btn btn-primary pull-right" ng-click="vm.novaPesquisa()">
+                Nova Pesquisa
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-body padding-0">
+                    <table class="table table-striped table-hover">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    Lorem ipsum dolor sit amet.
+                                </td>
+                                <td class="td-actions">
+                                    <div class="buttons-block">
+                                        <button class="btn btn-warning pull-left" ng-click="vm.novaNoticia(post);">
+                                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                                    </button>
+                                        <button class="btn btn-danger pull-right" ng-click="vm.excluirNoticia(index)">
+                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                    </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
