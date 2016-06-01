@@ -1,0 +1,134 @@
+<div class="modal" id="eventoCadastroPage" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <form class="form-horizontal no-gutter-left" novalidate name="frmAgenda">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" ng-click="$hide()">&times;</button>
+                    <h4 class="modal-title"> Adicionar agenda</h4>
+                </div>
+
+                <div class="modal-body">
+                    <div bs-tabs data-bs-active-pane="vm.tabAtiva">
+
+                        <div data-title="Informações" name="informacoes" disabled="false" bs-pane>
+
+                            <div class="form-group" ng-class="{ 'has-error': frmAgenda.titulo.$touched && frmAgenda.titulo.$invalid }">
+                                <label for="titulo" class="col-sm-2 control-label">Título</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="titulo" id="titulo" ng-model="vm.titulo" placeholder="Título" required>
+                                </div>
+                                <div class="help-block col-sm-offset-2 pull-right" ng-messages="frmAgenda.titulo.$error" ng-if="frmAgenda.titulo.$touched">
+                                    <p ng-message="required">Campo título inválido.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="checkbox col-sm-offset-2 col-sm-10">
+                                    <label data-title="Uma notificação será enviada para os participantes do envento." bs-tooltip data-placement="right">
+                                        <input type="checkbox" name="notificacao" ng-model="vm.notificacao"> Enviar notificação
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group" ng-class="{ 'has-error': frmAgenda.dataInicial.$touched && frmAgenda.dataInicial.$invalid }">
+                                <label class="control-label col-sm-2">Data <i class="fa fa-calendar"></i> </label>
+                                <div class="col-sm-10 dateform">
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control pull-right" ng-model="vm.dataInicial" data-max-date="{{vm.dataFinal}}" data-autoclose="1"
+                                            placeholder="Data" bs-datepicker date-format="dd/MM/yyyy" iconLeft="fa.fa-arrow-left"
+                                            required>
+                                        <div class="help-block pull-right" ng-messages="frmAgenda.dataInicial.$error" ng-if="frmAgenda.dataInicial.$touched">
+                                            <p ng-show="frmAgenda.dataInicial.$invalid">Campo data inválida.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <input type="text" name="dataInicial" class="form-control" ng-model="vm.dataInicial" data-time-format="HH:mm" data-autoclose="1"
+                                            placeholder="Hora" bs-timepicker required style="max-width:50%">
+                                        <div class="help-block pull-right" ng-messages="frmAgenda.dataInicial.$error" ng-if="frmAgenda.dataInicial.$touched">
+                                            <p ng-show="frmAgenda.dataInicial.$invalid">Campo hora inválida.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="checkbox col-sm-offset-2 col-sm-10">
+                                    <label data-title="Marcando essa opção para..." bs-tooltip data-placement="right">
+                                        <input type="checkbox" name="palestra" ng-model="vm.palestra"> Palestra
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group" ng-if="vm.palestra==true">
+                                <div class="checkbox col-sm-offset-2 col-sm-10">
+                                    <label>
+                                        <input type="checkbox" name="permitirAvaliacao" ng-model="vm.permitirAvaliacao"> Permitir Avaliações
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group" ng-if="vm.palestra==true">
+                                <div class="checkbox col-sm-offset-2 col-sm-10">
+                                    <label>
+                                        <input type="checkbox" name="permitirPerguntas" ng-model="vm.permitirPerguntas"> Permitir perguntas ao palestrante
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group" ng-class="{ 'has-error': frmAgenda.file.$touched && frmAgenda.file.$invalid }">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <input type="file" ngf-select="" ng-model="vm.imagem" name="file" ngf-accept="'image/*'" required value="Selecine uma foto">
+                                </div>
+                                <div class="col-sm-12 upload-preview" ng-if="vm.imagem">
+                                    <span class="fa fa-times fa-2x remove" ng-click="vm.removeImage()" data-title="Excluir imagem" bs-tooltip data-placement="left"></span>
+                                    <img ngf-src="vm.imagem" class="center-block thumbnail img-responsive">
+                                </div>
+                                <div class="help-block col-sm-offset-2 pull-right" ng-messages="frmAgenda.file.$error" ng-if="frmAgenda.file.$touched">
+                                    <p ng-show="frmAgenda.file.$invalid">Campo imagem inválido.</p>
+                                </div>
+                            </div>
+
+                            <div class="form-group" ng-class="{ 'has-error': frmAgenda.descricao.$touched && frmAgenda.descricao.$invalid }">
+                                <label for="descricao" class="col-sm-2 control-label">Descricao</label>
+                                <div class="col-sm-10">
+                                    <text-angular ng-model="vm.descricao" name="descricao" ng-required="true"></text-angular>
+                                </div>
+                                <div class="help-block col-sm-offset-2 pull-right" ng-messages="frmAgenda.descricao.$error" ng-if="frmAgenda.descricao.$touched">
+                                    <p ng-show="frmAgenda.descricao.$invalid">Campo descricao inválido.</p>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- fim tab 1 -->
+
+                        <!-- Enquete -->
+                        <div data-title="Enquete" disabled="frmAgenda.$invalid || !frmAgenda.$touched" name="config" bs-pane></div>
+                        <!--/ Enquete -->
+
+                        <!-- Palestrantes -->
+                        <div data-title="Palestrantes" disabled="frmAgenda.$invalid || !frmAgenda.$touched" name="info" bs-pane></div>
+                        <!--/ Palestrantes -->
+
+                        <!-- Avaliações -->
+                        <div data-title="Avaliações" disabled="frmAgenda.$invalid || !frmAgenda.$touched" name="info" bs-pane> </div>
+                        <!--/ Avaliações -->
+
+                        <!-- Perguntas ao palestrante -->
+                        <div data-title="Perguntas ao palestrante" disabled="frmAgenda.$invalid || !frmAgenda.$touched" name="info" bs-pane> </div>
+                        <!--/ Perguntas ao palestrante -->
+
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col col-xs-12 text-right">
+                            <button type="button" class="btn btn-default" ng-click="$hide()">Cancelar</button>
+                            <button type="button" class="btn btn-primary" ng-disabled="frmAgenda.$invalid" ng-click="vm.proximaTab()">{{(vm.tabAtiva != 'info') ? 'Próximo' : 'Salvar evento'}}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

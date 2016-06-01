@@ -10,7 +10,6 @@ function loginCtrl($state, $rootScope, AlertService, SessionService, LoginServic
     this.doLogin = doLogin;
 
     function doLogin(frm) {
-
         var user = {
             email: this.email,
             senha: this.senha
@@ -21,9 +20,9 @@ function loginCtrl($state, $rootScope, AlertService, SessionService, LoginServic
         }
 
         LoginService.doLogin(user, function (res) {
-            if (res.success) {
-                if (res.usuario) {
-                    SessionService.setSession(res.usuario);
+            if (res.data.success) {
+                if (res.data.usuario) {
+                    SessionService.setSession(res.data);
                     $state.go("eventos");
                 } else {
                     if (alert) {

@@ -1,15 +1,33 @@
 #eventosPage {
     .card {
+        figure {
+            height: 120px;
+            overflow: hidden;
+            margin: 0 0 5px;
+            img {
+                width: 100%;
+            }    
+        }
+        .panel-title {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
         .information {
             margin: 0;
-            &:first-child {
-                margin-top: 5px !important;
+            &.description {
+                height: 53px;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
             span {
                 font-weight: bold;
                 margin-right: 5px;
                 width: 90px;
             }
+        }
+        .buttons {
+            margin-top: 5px;
         }
     }
 }

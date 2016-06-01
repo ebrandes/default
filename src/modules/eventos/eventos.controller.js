@@ -1,25 +1,45 @@
 angular.module('app.modules')
     .controller('eventosCtrl', eventosCtrl);
 
-function eventosCtrl($scope, $rootScope, $modal, $templateCache, ModalService, HelperService) {
+function eventosCtrl($scope, $rootScope, $modal, $templateCache, ModalService, HelperService, EventosService) {
     //variables
-    this.listMode = false;
-    this.eventoSelecionado = {};
-    //definition
-    this.init = init;
-    this.changeMode = changeMode;
-    this.excluirEvento = excluirEvento;
-    this.novoEvento = novoEvento;
+    var vm = this;
+    vm.listMode = false;
+    vm.eventoSelecionado = {};
+    vm.eventoList = [];
 
+    //definition
+    vm.salvar = salvar;
+    vm.buscar = buscar;
+    vm.excluir = excluir;
+    vm.novoEvento = novoEvento;
+    vm.init = init;
+
+    // implementation
     function init() {
         $rootScope.isInEvent = false;
+        buscar();
+    }
+    
+    function salvar() {
+        
+    }
+
+    function buscar() {
+        EventosService.getAll(function (response) {
+            if (response.data.success) {
+                vm.eventoList = response.data.eventoList;
+            } else {
+                alert('ERRO!');
+            }
+        });
     }
 
     function novoEvento(evento) {
         if (!evento) {
-            this.eventoSelecionado = {};
+            vm.eventoSelecionado = {};
         } else {
-            this.eventoSelecionado = evento;
+            vm.eventoSelecionado = evento;
         }
         var modalCadastro =
             $modal({
@@ -28,25 +48,19 @@ function eventosCtrl($scope, $rootScope, $modal, $templateCache, ModalService, H
                 controller: eventoCadastroCtrl,
                 controllerAs: 'vm',
                 locals: {
-                    evento: this.eventoSelecionado
+                    evento: vm.eventoSelecionado
                 }
             });
     }
 
-
-    function excluirEvento(index) {
+    function excluir(index) {
         ModalService.openModalConfirmation({
             content: 'Deseja realmente excluir o evento?',
             showCancel: true,
             confirmFunction: function () {
-                //this.eventos.split(index, 1);
+                //vm.eventos.split(index, 1);
                 console.log("Evento excluído com sucesso.");
             }
         });
     }
-
-    function changeMode() {
-        this.listMode = !this.listMode;
-    }
-
 }

@@ -26,15 +26,23 @@ angular.module('app', dependencies)
             })
 
 
-        var usuario = SessionService.getSession();
-        if (!usuario) {
-            $state.go('login');
-        }
+        // var usuario = SessionService.getSession();
+        // if (!usuario) {
+        //     $state.go('login');
+        // }
 
         $rootScope.isInEvent = false;
-        // $state.go('login');
+
+        $rootScope.$on('unauthorized', function () {
+            console.log("unauthorized");
+            SessionService.clearSession();
+            $state.go('login');
+        });
     })
-    .config(function ($urlRouterProvider, $alertProvider, $datepickerProvider, $timepickerProvider, $tooltipProvider, $tabProvider) {
+    .config(function ($urlRouterProvider, $alertProvider, $datepickerProvider, $timepickerProvider, $tooltipProvider, $tabProvider, $httpProvider) {
+        
+        $httpProvider.defaults.timeout = 5000;
+        
         $urlRouterProvider.otherwise('/eventos');
         //alerts
         angular.extend($alertProvider.defaults, {
@@ -61,5 +69,9 @@ angular.module('app', dependencies)
         });
     })
     .constant('API', {
-        'url': 'http://192.168.0.77:3000/eventos/api/'
+        'url': 'http://192.168.0.202:3000/eventos/api/',
+    }).constant("CONFIG", {
+        "urlAppAndroid": "http://192.168.0.201:3000/eventos/aplicativos/app_prod.apk",
+        "urlAppAndroidCrosswalk": "[UCDSIC_APP_URL]aplicativos/crosswalk_app_[UCDSIC_APP_AMBIENTE].apk",
+        "urlAppIosPlist": "https://assembleias.sicredi.net/eventos/aplicativos/app_desenv.plist" //https obrigatorio
     })

@@ -1,15 +1,18 @@
 angular.module('app.services')
     .factory('LoginService', loginService);
 
-function loginService($http, API, md5) {
+function loginService($http, SessionService, API) {
     return {
-        doLogin: doLogin
+        doLogin: doLogin,
+        salvarCadastro: salvarCadastro
     }
 
-    function doLogin(user, callback) {
-        $http.post(API.url + '/login-administrador', user).then(function (response) {
-            callback(response.data);
-        });
+    function salvarCadastro(usuario, callback) {
+        $http.post(API.url + 'criar-usuario', usuario).then(function (response) { callback(response) });
     }
+
+    function doLogin(usuario, callback) {
+        $http.post(API.url + 'login-administrador', usuario).then(function (response) { callback(response) });
+    };
 
 }

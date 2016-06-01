@@ -1,5 +1,4 @@
-<div id="vm.sPage" ng-init="vm.init();">
-
+<div id="eventosPage" ng-init="vm.init();">
     <div class="row">
         <div class="col-xs-6">
             <h2> Eventos </h2>
@@ -10,39 +9,45 @@
             </button>
         </div>
     </div>
-
-    <div class="row" ng-if="!vm.listMode">
-        <div class="col-md-4 card">
+    <div class="row">
+        <div class="col-md-4 card" ng-repeat="evento in vm.eventoList | orderBy: 'dataInicio'">
             <div class="panel panel-default">
+                
                 <div class="panel-heading">
-                    <h3 class="panel-title">Evento 1</h3>
+                    <h3 class="panel-title">{{evento.nome}}</h3>
                 </div>
+                
                 <div class="panel-body">
-                    <img class="img-responsive center-block" src="./assets/imgs/evento_default.png" alt="Evento 1" />
-                    <p class="information">
-                        <span>Local: </span> Porto Alegre
+                    <figure>
+                        <img ng-src="{{ evento.imagem || './assets/imgs/evento_default.png' }}" class="img-responsive center-block" alt="{{evento.nome}}" />
+                    </figure>
+                    <p class="information" ng-if="evento.local">
+                        <span>Local: </span> {{evento.local}}
                     </p>
                     <p class="information">
-                        <span>Data:</span> 24/10/2016 as 16:00h
+                        <span>Data:</span> {{evento.dataInicio | date:'dd/MM/yyyy'}} as {{evento.horaInicio | date:'HH:mm'}}
                     </p>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.
+                    
+                    <p class="information description" ng-if="evento.descricao" ng-bind-html="evento.descricao | limitTo : 200">
                     </p>
+                    <p class="information description"ng-if="!evento.descricao" class=""><i>Este evento não possui descrição</i></p>
+                    
 
                     <div class="buttons pull-right">
-                        <button type="button" name="button" class="btn btn-danger" ng-click="vm.excluirEvento(index)">
+                        <button type="button" name="button" class="btn btn-danger" ng-click="vm.excluir(index)">
                             Excluir
                         </button>
-                        <button type="button" name="button" class="btn btn-warning">
+                        <button type="button" name="button" class="btn btn-warning" ng-click="vm.novoEvento(evento)">
                             Editar
                         </button>
-                        <a class="btn btn-primary" href="#eventos/1/dashboard">
+                        <a class="btn btn-primary" href="#/eventos/{{evento.id}}/dashboard">
                             Entrar
                         </a>
                     </div>
 
                 </div>
             </div>
+            
         </div>
     </div>
 

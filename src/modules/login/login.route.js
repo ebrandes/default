@@ -1,9 +1,9 @@
 angular.module('app.modules')
-    .config(function($stateProvider) {
+    .config(function ($stateProvider) {
         $stateProvider
             .state('login', {
                 url: '/login',
-                templateProvider: function($templateCache) {
+                templateProvider: function ($templateCache) {
                     return $templateCache.get('login/login.html');
                 },
                 controller: 'loginCtrl',

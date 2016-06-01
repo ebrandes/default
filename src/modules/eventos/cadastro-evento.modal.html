@@ -12,33 +12,33 @@
                     <div bs-tabs data-bs-active-pane="vm.tabAtiva">
 
                         <div data-title="Evento" name="evento" disabled="false" bs-pane>
-                            <div class="form-group" ng-class="{ 'has-error': frmEvento.titulo.$touched && frmEvento.titulo.$invalid }">
-                                <label for="titulo" class="col-sm-2 control-label">Título</label>
+                            <div class="form-group" ng-class="{ 'has-error': frmEvento.nome.$touched && frmEvento.nome.$invalid }">
+                                <label for="nome" class="col-sm-2 control-label">Título</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="titulo" id="titulo" ng-model="vm.titulo" placeholder="Título" required>
+                                    <input type="text" class="form-control" name="nome" id="nome" ng-model="vm.nome" placeholder="Título" required>
                                 </div>
-                                <div class="help-block col-sm-offset-2 pull-right" ng-messages="frmEvento.titulo.$error" ng-if="frmEvento.titulo.$touched">
+                                <div class="help-block col-sm-offset-2 pull-right" ng-messages="frmEvento.nome.$error" ng-if="frmEvento.nome.$touched">
                                     <p ng-message="required">Campo título inválido.</p>
                                 </div>
                             </div>
 
 
-                            <div class="form-group" ng-class="{ 'has-error': frmEvento.dataInicial.$touched && frmEvento.dataInicial.$invalid }">
+                            <div class="form-group" ng-class="{ 'has-error': frmEvento.dataInicio.$touched && frmEvento.dataInicio.$invalid }">
                                 <label class="control-label col-sm-2">De <i class="fa fa-calendar"></i> </label>
                                 <div class="col-sm-10 dateform">
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control pull-right" ng-model="vm.dataInicial" data-max-date="{{vm.dataFinal}}" data-autoclose="1"
+                                        <input type="text" class="form-control pull-right" ng-model="vm.dataInicio" data-max-date="{{vm.dataFinal}}" data-autoclose="1"
                                             placeholder="Data inicial" bs-datepicker date-format="dd/MM/yyyy" iconLeft="fa.fa-arrow-left"
                                             required>
-                                        <div class="help-block pull-right" ng-messages="frmEvento.dataInicial.$error" ng-if="frmEvento.dataInicial.$touched">
-                                            <p ng-show="frmEvento.dataInicial.$invalid">Campo data inválida.</p>
+                                        <div class="help-block pull-right" ng-messages="frmEvento.dataInicio.$error" ng-if="frmEvento.dataInicio.$touched">
+                                            <p ng-show="frmEvento.dataInicio.$invalid">Campo data inválida.</p>
                                         </div>
                                     </div>
                                     <div class="col-sm-5">
-                                        <input type="text" name="dataInicial" class="form-control" ng-model="vm.dataInicial" data-time-format="HH:mm" data-autoclose="1"
+                                        <input type="text" name="dataInicio" class="form-control" ng-model="vm.dataInicio" data-time-format="HH:mm" data-autoclose="1"
                                             placeholder="Hora" bs-timepicker required style="max-width:50%">
-                                        <div class="help-block pull-right" ng-messages="frmEvento.dataInicial.$error" ng-if="frmEvento.dataInicial.$touched">
-                                            <p ng-show="frmEvento.dataInicial.$invalid">Campo hora inválida.</p>
+                                        <div class="help-block pull-right" ng-messages="frmEvento.dataInicio.$error" ng-if="frmEvento.dataInicio.$touched">
+                                            <p ng-show="frmEvento.dataInicio.$invalid">Campo hora inválida.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -48,7 +48,7 @@
                                 <label class="control-label col-sm-2">Até <i class="fa fa-calendar"></i> </label>
                                 <div class="col-sm-10 dateform">
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control pull-right" ng-model="vm.dataFinal" data-min-date="{{vm.dataInicial}}" data-autoclose="1"
+                                        <input type="text" class="form-control pull-right" ng-model="vm.dataFinal" data-min-date="{{vm.dataInicio}}" data-autoclose="1"
                                             placeholder="Data final" bs-datepicker date-format="dd/MM/yyyy" iconLeft="fa.fa-arrow-left"
                                             required>
                                         <div class="help-block pull-right" ng-messages="frmEvento.dataFinal.$error" ng-if="frmEvento.dataFinal.$touched">

@@ -1,20 +1,39 @@
 angular.module('app.services')
     .factory('SessionService', SessionService);
 
-function SessionService($localStorage) {
+function SessionService($localStorage, $rootScope) {
 
     return {
+        getSession: getSession,
         setSession: setSession,
-        getSession: getSession
+        clearSession: clearSession
     }
 
-
-    function setSession(session) {
-        $localStorage.session = session;
+    function clearSession() {
+        if ($localStorage.session) {
+            delete $localStorage.session;
+            delete $localStorage.idUsuario;
+        }
     }
 
     function getSession() {
-        return $localStorage.session;
+        var session = ($localStorage.session) ? JSON.parse($localStorage.session) : null;
+        if (session && session.usuario) {
+            $rootScope.usuarioSessao = session.usuario.nome;
+        }
+        return session;
+    }
+
+    function setSession(data) {
+        console.log("DATA",data);
+        $localStorage.session = JSON.stringify({
+            usuario: data.usuario,
+            token: data.token
+        });
+        console.log("$localStorage.session: ", $localStorage.session);
+        if (data.usuario) {
+            $localStorage.idUsuario = data.usuario.id;
+        }
     }
 
 }

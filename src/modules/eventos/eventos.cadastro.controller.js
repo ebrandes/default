@@ -6,7 +6,7 @@ function eventoCadastroCtrl(HelperService, $modal, evento) {
     //variables
     if (evento) {
         this.id = evento.id;
-        this.titulo = evento.titulo;
+        this.nome = evento.nome;
         this.dataInicio = evento.dataInicio;
         this.dataFinal = evento.dataFinal;
         this.destaque = evento.destaque;
@@ -19,13 +19,13 @@ function eventoCadastroCtrl(HelperService, $modal, evento) {
         this.informacao = {};
     }
     this.tabAtiva = "evento";
-    
+
     //definitions
     this.closeModal = closeModal;
     this.removeImage = removeImage;
     this.proximaTab = proximaTab;
     this.adicionarFilho = adicionarFilho;
-    
+
     //functions
     function proximaTab() {
         if (this.tabAtiva == "info") {
@@ -44,7 +44,7 @@ function eventoCadastroCtrl(HelperService, $modal, evento) {
     function closeModal() {
         $modal.hide();
     }
-    
+
     function adicionarFilho() {
         vm.informacao.filhos.unshift({
             nome: '',
