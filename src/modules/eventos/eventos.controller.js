@@ -10,25 +10,16 @@ function eventosCtrl($state, $rootScope, $modal, $templateCache, ModalService, H
     vm.eventoList = [];
 
     // definition
-    vm.salvar = salvar;
     vm.buscar = buscar;
     vm.excluir = excluir;
     vm.novoEvento = novoEvento;
     vm.acessar = acessar;
-    vm.init = init;
 
     // implementation
+    buscar();
+
     function acessar(idEvento) {
         $state.transitionTo('eventos.dashboard', { id: idEvento });
-    }
-
-    function init() {
-        $rootScope.isInEvent = false;
-        buscar();
-    }
-
-    function salvar() {
-
     }
 
     function buscar() {
@@ -59,13 +50,16 @@ function eventosCtrl($state, $rootScope, $modal, $templateCache, ModalService, H
             });
     }
 
-    function excluir(index) {
+    function excluir(evento) {
         ModalService.openModalConfirmation({
-            content: 'Deseja realmente excluir o evento?',
+            content: 'Deseja realmente excluir o evento ' + evento.nome + '?',
             showCancel: true,
             confirmFunction: function () {
-                //vm.eventos.split(index, 1);
-                // console.log("Evento excluído com sucesso.");
+                EventosService.excluir(evento.id, function (response) {
+                    buscar();
+                }, function(err){
+                    console.log(err);
+                });
             }
         });
     }
