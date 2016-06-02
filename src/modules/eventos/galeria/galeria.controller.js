@@ -2,10 +2,13 @@ angular
     .module('app.modules')
     .controller('galeriaCtrl', galeriaCtrl);
 
-function galeriaCtrl($modal, $templateCache, $scope, ModalService) {
+function galeriaCtrl($modal, $templateCache, $scope, ModalService, GaleriaService, $stateParams, $rootScope) {
     // variáveis
+    $rootScope.isInEvent = true;
     var vm = this;
-
+    vm.id_evento = $stateParams.id;
+    vm.lista = [];
+    
     // definição
     this.salvar = salvar;
     this.buscar = buscar;
@@ -14,12 +17,20 @@ function galeriaCtrl($modal, $templateCache, $scope, ModalService) {
     this.adicionarFoto = adicionarFoto;
 
     // implementação
+    buscar();
+
     function salvar() {
         return;
     }
 
     function buscar() {
-        return;
+        GaleriaService.getFotos(vm.id_evento, function (response) {
+            console.log(response);
+            vm.lista = response.fotos;
+        }, function (err) {
+            console.log(err);
+        })
+
     }
 
     function listar() {

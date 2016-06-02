@@ -25,12 +25,10 @@ function SessionService($localStorage, $rootScope) {
     }
 
     function setSession(data) {
-        console.log("DATA",data);
         $localStorage.session = JSON.stringify({
             usuario: data.usuario,
             token: data.token
         });
-        console.log("$localStorage.session: ", $localStorage.session);
         if (data.usuario) {
             $localStorage.idUsuario = data.usuario.id;
         }

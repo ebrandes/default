@@ -8,26 +8,29 @@
                 width: 100%;
             }    
         }
-        .panel-title {
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        .information {
-            margin: 0;
-            &.description {
-                height: 53px;
+        .panel {
+            
+            .panel-title {
+                white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
             }
-            span {
-                font-weight: bold;
-                margin-right: 5px;
-                width: 90px;
+            .information {
+                margin: 0;
+                &.description {
+                    height: 53px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+                span {
+                    font-weight: bold;
+                    margin-right: 5px;
+                    width: 90px;
+                }
             }
-        }
-        .buttons {
-            margin-top: 5px;
+            .buttons {
+                margin-top: 5px;
+            }   
         }
     }
 }
@@ -56,4 +59,19 @@
     .sub-radio {
         padding-left: 20px;
     }
+}
+.triangle-topright { 
+   width: 0; 
+   height: 0; 
+   border-top: 40px solid rgba(0,0,0,0.5); 
+   border-left: 40px solid transparent; 
+   position: absolute;
+   right: 15px;
+   top: 0;
+   i {
+       position: absolute;
+       top: -35px;
+       right: 5px;
+       color: yellowgreen;
+   }
 }

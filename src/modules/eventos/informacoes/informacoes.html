@@ -1,24 +1,24 @@
 <div class="page-wrapper" id="informacaoPage">
     <div class="row padding-vertical">
         <div class="col-xs-12 text-right">
-            <button class="btn btn-primary" ng-click="vm.adicionarInformacao('informacao')">
+            <button class="btn btn-primary" ng-click="vm.adicionar('informacao')">
                 <i class="fa fa-plus" aria-hidden="true"></i>
                 Nova Informação
             </button>
-            <button class="btn btn-primary" ng-click="vm.adicionarInformacao('lista')">
+            <button class="btn btn-primary" ng-click="vm.adicionar('lista')">
                 <i class="fa fa-plus" aria-hidden="true"></i>
                 Nova Lista
             </button>
         </div>
     </div>
-    <div class="panel panel-default" ng-repeat="informacao in vm.informacoes">
+    <div class="panel panel-default" ng-repeat="informacao in vm.lista">
         <div class="panel-heading">
             <div class="row">
                 <div class="col-xs-6">
                     {{ informacao.nome }}
                 </div>
                 <div class="col-xs-6 text-right">
-                    <button class="btn btn-warning" ng-click="vm.editarInformacao(informacao)">
+                    <button class="btn btn-warning" ng-click="vm.adicionar(informacao)">
                         <i class="fa fa-pencil" aria-hidden="true"></i>
                     </button>
                     <button class="btn btn-danger" ng-click="vm.excluirInformacao(informacao)">

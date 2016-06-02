@@ -3,7 +3,7 @@
         <div class="col-xs-4">
             <div class="form-group">
                 <label for="nome">Pesquisa</label>
-                <input type="text" class="form-control" name="pesquisa" id="pesquisa" placeholder="Procurar participantes por email" ng-model="vm.pesquisa">
+                <input type="text" class="form-control" name="pesquisa" id="pesquisa" placeholder="Pesquisar participantes" ng-model="search">
             </div>
         </div>
         <div class="col-xs-8 text-right">
@@ -17,32 +17,39 @@
             </button>
         </div>
     </div>
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th></th>
-                <th>Nome</th>
-                <th>Email</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="participante in vm.participantes">
-                <td>
-                    <a href="#">
-                        <img class="media-object img-circle" ng-src="{{ participante.imagem }}" alt="">
-                    </a>
-                </td>
-                <td class="vcenter">{{ participante.nome }}</td>
-                <td class="vcenter">{{ participante.email }}</td>
-                <td class="text-right vcenter">
-                    <button class="btn btn-primary" ng-click="vm.visualizarParticipante(participante)">
+    <div class="panel panel-default">
+        <div class="panel-body padding-0">
+            <table class="table table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th>&nbsp;</th>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="participante in vm.lista | filter:search">
+                        <td>
+                            <a href="#" ng-if="participante.imagem">
+                                <img class="media-object img-circle" ng-src="{{participante.imagem}}" width="30" alt="">
+                            </a>
+                        </td>
+                        <td class="vcenter">{{participante.nome}}</td>
+                        <td class="vcenter">{{participante.email}}</td>
+                        <td class="text-right vcenter">
+                            <button class="btn btn-primary" ng-click="vm.visualizarParticipante(participante)">
                         <i class="fa fa-eye" aria-hidden="true"></i>
                     </button>
-                    <button class="btn btn-danger" ng-click="vm.excluirParticipante(participante)">
+                            <button class="btn btn-danger" ng-click="vm.excluirParticipante(participante)">
                         <i class="fa fa-times" aria-hidden="true"></i>
                     </button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
 </div>

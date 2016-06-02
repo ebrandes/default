@@ -1,15 +1,14 @@
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation" ng-controller="menuCtrl as vm">
 
     <div class="navbar-header">
-        <button ng-click="menu.openMenu()" type="button" class="navbar-toggle" data-towggle="collapse"
-                data-target=".navbar-ex1-collapse">
+        <button ng-click="menu.openMenu()" type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" ui-sref="dashboard">
-            <img style="width:50%" src="./assets/imgs/logo_forum.png" class="img-responsive" alt=""/>
+            <img style="width:50%" src="./assets/imgs/logo_forum.png" class="img-responsive" alt="" />
         </a>
     </div>
 
@@ -100,37 +99,37 @@
             <li ui-sref="eventos" ui-sref-active="active" ng-if="!isInEvent">
                 <a><i class="fa fa-calendar-o"></i> Eventos</a>
             </li>
-            <li ui-sref="eventos.dashboard" ui-sref-active="active" ng-if="isInEvent">
+            <li ui-sref="eventos.dashboard({id: vm.id_evento})" ui-sref-active="active" ng-if="isInEvent">
                 <a><i class="fa fa-arrow-circle-right"></i>Dashboard</a>
             </li>
-            <li ui-sref="eventos.informacoes" ui-sref-active="active" ng-if="isInEvent">
+            <li ui-sref="eventos.informacoes({id: vm.id_evento})" ui-sref-active="active" ng-if="isInEvent">
                 <a class="nav-item-collapse">Informações</a>
             </li>
-            <li ui-sref="eventos.participantes" ui-sref-active="active" ng-if="isInEvent">
+            <li ui-sref="eventos.participantes({id: vm.id_evento})" ui-sref-active="active" ng-if="isInEvent">
                 <a class="nav-item-collapse">Participantes</a>
             </li>
-            <li ui-sref="eventos.noticias" ui-sref-active="active" ng-if="isInEvent">
+            <li ui-sref="eventos.noticias({id: vm.id_evento})" ui-sref-active="active" ng-if="isInEvent">
                 <a> <i class="fa fa-arrow-circle-right"></i>Notícias</a>
             </li>
-            <li ui-sref="eventos.agenda" ui-sref-active="active" ng-if="isInEvent">
+            <li ui-sref="eventos.agenda({id: vm.id_evento})" ui-sref-active="active" ng-if="isInEvent">
                 <a> <i class="fa fa-arrow-circle-right"></i>Agenda</a>
             </li>
-            <li ui-sref="eventos.galeria" ui-sref-active="active" ng-if="isInEvent">
+            <li ui-sref="eventos.galeria({id: vm.id_evento})" ui-sref-active="active" ng-if="isInEvent">
                 <a> <i class="fa fa-arrow-circle-right"></i>Galeria</a>
             </li>
-            <li ui-sref="eventos.pesquisa" ui-sref-active="active" ng-if="isInEvent">
+            <li ui-sref="eventos.pesquisa({id: vm.id_evento})" ui-sref-active="active" ng-if="isInEvent">
                 <a> <i class="fa fa-arrow-circle-right"></i>Pesquisa de Satisfação</a>
             </li>
-            <li ui-sref="eventos.arquivos" ui-sref-active="active" ng-if="isInEvent">
+            <li ui-sref="eventos.arquivos({id: vm.id_evento})" ui-sref-active="active" ng-if="isInEvent">
                 <a> <i class="fa fa-arrow-circle-right"></i>Material de apoio</a>
             </li>
-            <li ui-sref="eventos.notificacoes" ui-sref-active="active" ng-if="isInEvent">
+            <li ui-sref="eventos.notificacoes({id: vm.id_evento})" ui-sref-active="active" ng-if="isInEvent">
                 <a><i class="fa fa-arrow-circle-right"></i>Notificações</a>
             </li>
-            <li ui-sref="eventos.paginas" ui-sref-active="active" ng-if="isInEvent">
+            <li ui-sref="eventos.paginas({id: vm.id_evento})" ui-sref-active="active" ng-if="isInEvent">
                 <a> <i class="fa fa-arrow-circle-right"></i>Páginas dinâmicas</a>
             </li>
-            <li ui-sref="eventos.relatorio" ui-sref-active="active" ng-if="isInEvent">
+            <li ui-sref="eventos.relatorio({id: vm.id_evento})" ui-sref-active="active" ng-if="isInEvent">
                 <a> <i class="fa fa-arrow-circle-right"></i>Relatórios</a>
             </li>
             <!--<li ui-sref="eventos.administradores" ui-sref-active="active" ng-if="isInEvent">

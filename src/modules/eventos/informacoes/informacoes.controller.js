@@ -1,34 +1,48 @@
-angular
-    .module('app.modules')
+angular.module('app.modules')
     .controller('informacoesCtrl', informacoesCtrl);
 
-function informacoesCtrl($log, $modal, $templateCache, $scope, ModalService) {
+function informacoesCtrl($rootScope, $log, $modal, $templateCache, $scope, ModalService, EventosService, $stateParams) {
+    // variables
+    $rootScope.isInEvent = true;
     var vm = this;
     var tiposInformacoes = ['lista', 'informacao'];
-
-    vm.excluirInformacao = excluirInformacao;
-    vm.adicionarInformacao = adicionarInformacao;
-    vm.editarInformacao = editarInformacao;
-
-    vm.informacoes = buscarInformacoes();
     vm.modalInformacoes = {
         modal: null,
         scope: null
     };
+    vm.id_evento = $stateParams.id;
+    vm.lista = [];
 
-    criarInformacoesFormModal();
+    // definition
+    vm.excluirInformacao = excluirInformacao;
+    vm.adicionarInformacao = adicionarInformacao;
+    vm.editarInformacao = editarInformacao;
+    vm.buscar = buscar;
+    vm.adicionar = adicionar;
 
-    function criarInformacoesFormModal() {
-        var modalScope = $scope.$new(true);
-        vm.modalInformacoes.modal = $modal({
-            template: $templateCache.get('eventos/informacoes/informacoes-form.modal.html'),
-            scope: modalScope,
-            controller: 'informacoesFormCtrl',
-            controllerAs: 'vm',
-            prefixEvent: 'informacoesModal',
-            show: false,
+    // implementation
+    buscar();
+
+    function buscar() {
+        EventosService.getInformacoes(vm.id_evento, function (response) {
+            vm.lista = response.data.informacoes;
+        }, function (err) {
+            vm.lista = [];
+            console.log(err);
         });
-        vm.modalInformacoes.scope = modalScope;
+    }
+
+    function adicionar(tipo, informacao) {
+        var modalCadastro =
+            $modal({
+                template: $templateCache.get('eventos/informacoes/informacoes-form.modal.html'),
+                show: true,
+                controller: informacoesFormCtrl,
+                controllerAs: 'vm',
+                locals: {
+                    informacao: vm.informacaoSelecionado
+                }
+            });
     }
 
     function adicionarInformacao(tipo) {
@@ -41,6 +55,8 @@ function informacoesCtrl($log, $modal, $templateCache, $scope, ModalService) {
         vm.modalInformacoes.modal.show();
     }
 
+
+
     function editarInformacao(informacao) {
         vm.modalInformacoes.scope.tipo = informacao.filhos ? 'lista' : 'informacao';
         vm.modalInformacoes.scope.acao = 'editar';
@@ -52,35 +68,11 @@ function informacoesCtrl($log, $modal, $templateCache, $scope, ModalService) {
         ModalService.openModalConfirmation({
             content: 'Deseja realmente excluir esta informação?',
             showCancel: true,
-            confirmFunction: function() {
+            confirmFunction: function () {
                 $log.log("informação excluída com sucesso.", informacao);
             }
         });
     }
 
-    function buscarInformacoes() {
-        var informacoes = [];
-        var informacao, i, j;
-        for (i = 0; i < 6; i++) {
-            if (i % 2 == 0) {
-                informacao = {
-                    nome: 'Lorem ipsum',
-                    descricao: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tristique rutrum sapien, vitae ultrices sem vestibulum id. Aenean laoreet varius dui non sollicitudin. Donec volutpat venenatis urna, sed hendrerit libero tristique a. Aliquam dictum lacus eget diam rhoncus ornare. Quisque in pretium dolor.'
-                };
-            } else {
-                informacao = {
-                    nome: 'Lorem ipsum',
-                    filhos: []
-                };
-                for (j = 0; j < 3; j++) {
-                    informacao.filhos.push({
-                        nome: 'Lorem ipsum dolor',
-                        descricao: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
-                    });
-                }
-            }
-            informacoes.push(informacao);
-        }
-        return informacoes;
-    }
+
 }

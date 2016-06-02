@@ -12,7 +12,9 @@
     <div class="row">
         <div class="col-md-4 card" ng-repeat="evento in vm.eventoList | orderBy: 'dataInicio'">
             <div class="panel panel-default">
-                
+                <div class="triangle-topright" ng-if="evento.destaque">
+                    <i class="fa fa-star" aria-hidden="true" data-title="Destaque" bs-tooltip data-placement="top"></i>
+                </div>
                 <div class="panel-heading">
                     <h3 class="panel-title">{{evento.nome}}</h3>
                 </div>
@@ -40,9 +42,9 @@
                         <button type="button" name="button" class="btn btn-warning" ng-click="vm.novoEvento(evento)">
                             Editar
                         </button>
-                        <a class="btn btn-primary" href="#/eventos/{{evento.id}}/dashboard">
+                        <button class="btn btn-primary" ng-click="vm.acessar(evento.id)">
                             Entrar
-                        </a>
+                        </button>
                     </div>
 
                 </div>

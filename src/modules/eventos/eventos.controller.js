@@ -1,28 +1,34 @@
 angular.module('app.modules')
     .controller('eventosCtrl', eventosCtrl);
 
-function eventosCtrl($scope, $rootScope, $modal, $templateCache, ModalService, HelperService, EventosService) {
-    //variables
+function eventosCtrl($state, $rootScope, $modal, $templateCache, ModalService, HelperService, EventosService) {
+
+    // variables
     var vm = this;
     vm.listMode = false;
     vm.eventoSelecionado = {};
     vm.eventoList = [];
 
-    //definition
+    // definition
     vm.salvar = salvar;
     vm.buscar = buscar;
     vm.excluir = excluir;
     vm.novoEvento = novoEvento;
+    vm.acessar = acessar;
     vm.init = init;
 
     // implementation
+    function acessar(idEvento) {
+        $state.transitionTo('eventos.dashboard', { id: idEvento });
+    }
+
     function init() {
         $rootScope.isInEvent = false;
         buscar();
     }
-    
+
     function salvar() {
-        
+
     }
 
     function buscar() {
@@ -59,7 +65,7 @@ function eventosCtrl($scope, $rootScope, $modal, $templateCache, ModalService, H
             showCancel: true,
             confirmFunction: function () {
                 //vm.eventos.split(index, 1);
-                console.log("Evento excluído com sucesso.");
+                // console.log("Evento excluído com sucesso.");
             }
         });
     }

@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close"Taria-label="Close" ng-click="$hide()">
+                <button type="button" class="close" Taria-label="Close" ng-click="$hide()">
                     <span aria-hidden="true">&times;</span>
                 </button>
                 <h4 class="modal-title">{{  (vm.acao === 'editar' ? 'Edição de ' : 'Nova ') + vm.tipo   }}</h4>
@@ -61,13 +61,13 @@
                         </button>
                     </div>
                     <div class="col col-xs-6 text-right">
-                        <button type="button" class="btn btn-primary" ng-disabled="formInformacao.$invalid" ng-click="vm.salvar(vm.informacao)">
-                            <i class="fa fa-check" aria-hidden="true"></i>
-                            Salvar
-                        </button>
                         <button type="button" class="btn btn-danger" ng-click="$hide()">
                             <i class="fa fa-times" aria-hidden="true"></i>
                             Cancelar
+                        </button>
+                        <button type="button" class="btn btn-primary" ng-disabled="formInformacao.$invalid" ng-click="vm.salvar(vm.informacao)">
+                            <i class="fa fa-check" aria-hidden="true"></i>
+                            Salvar
                         </button>
                     </div>
                 </div>

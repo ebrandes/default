@@ -1,22 +1,23 @@
 angular.module('app.modules')
     .controller('participantesCtrl', participantesCtrl);
 
-function participantesCtrl(HelperService, $rootScope) {
-    var vm = this;
-
+function participantesCtrl(HelperService, $stateParams, $rootScope, ParticipanteService) {
+    // variables
     $rootScope.isInEvent = true;
-    vm.participantes = buscarParticipantes();
+    var vm = this;
+    vm.id_evento = $stateParams.id;
+    vm.lista = [];
 
-    function buscarParticipantes() {
-        var i;
-        var participantes = [];
-        for (i = 0; i < 6; i++) {
-            participantes.push({
-                imagem: 'http://placehold.it/80x80',
-                nome: 'Lorem ipsum dolor sit amet',
-                email: 'Lorem@ipsum.dolor.sit.amet'
-            });
-        }
-        return participantes;
+    // definition
+    vm.buscar = buscar;
+
+    // implementation
+    buscar();
+    function buscar() {
+        ParticipanteService.getParticipantes(vm.id_evento, function (response) {
+            vm.lista = response.usuarios;
+        }, function (err) {
+            // console.log(err);
+        });
     }
 }

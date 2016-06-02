@@ -15,9 +15,9 @@
                 <div class="panel-body padding-0">
                     <table class="table table-striped table-hover">
                         <tbody>
-                            <tr>
+                            <tr ng-repeat="pagina in vm.lista">
                                 <td>
-                                    Lorem ipsum dolor sit amet.
+                                    {{pagina.titulo}}
                                 </td>
                                 <td class="td-actions">
                                     <div class="buttons-block">

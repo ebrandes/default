@@ -25,11 +25,10 @@ angular.module('app', dependencies)
                 }
             })
 
-
-        // var usuario = SessionService.getSession();
-        // if (!usuario) {
-        //     $state.go('login');
-        // }
+        var usuario = SessionService.getSession();
+        if (!usuario) {
+            $state.go('login');
+        }
 
         $rootScope.isInEvent = false;
 
