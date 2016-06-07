@@ -1,4 +1,4 @@
-<div id="relatorioPage">
+<div id="relatorioPage" class="hidden-print">
     <div class="row">
         <div class="col-xs-6">
             <h2> Relatórios do evento </h2>
@@ -16,9 +16,9 @@
                                 </td>
                                 <td class="td-actions">
                                     <div class="buttons-block">
-                                        <button class="btn btn-primary pull-right">
-                                        <i class="fa fa-eye" aria-hidden="true"></i>
-                                    </button>
+                                        <button class="btn btn-primary pull-right" ng-click="vm.abrir('pesquisaSatisfacao')">
+                                            <i class="fa fa-eye" aria-hidden="true"></i>
+                                        </button>
                                     </div>
                                 </td>
                             </tr>
@@ -28,9 +28,9 @@
                                 </td>
                                 <td class="td-actions">
                                     <div class="buttons-block">
-                                        <button class="btn btn-primary pull-right">
-                                        <i class="fa fa-eye" aria-hidden="true"></i>
-                                    </button>
+                                        <button class="btn btn-primary pull-right" ng-click="vm.abrir('qtdLogados')">
+                                            <i class="fa fa-eye" aria-hidden="true"></i>
+                                        </button>
                                     </div>
                                 </td>
                             </tr>
@@ -40,9 +40,9 @@
                                 </td>
                                 <td class="td-actions">
                                     <div class="buttons-block">
-                                        <button class="btn btn-primary pull-right">
-                                        <i class="fa fa-eye" aria-hidden="true"></i>
-                                    </button>
+                                        <button class="btn btn-primary pull-right" ng-click="vm.abrir('qtdAcessos')">
+                                            <i class="fa fa-eye" aria-hidden="true"></i>
+                                        </button>
                                     </div>
                                 </td>
                             </tr>
@@ -52,9 +52,9 @@
                                 </td>
                                 <td class="td-actions">
                                     <div class="buttons-block">
-                                        <button class="btn btn-primary pull-right">
-                                        <i class="fa fa-eye" aria-hidden="true"></i>
-                                    </button>
+                                        <button class="btn btn-primary pull-right" ng-click="vm.abrir('informacoesAdicionais')">
+                                            <i class="fa fa-eye" aria-hidden="true"></i>
+                                        </button>
                                     </div>
                                 </td>
                             </tr>
