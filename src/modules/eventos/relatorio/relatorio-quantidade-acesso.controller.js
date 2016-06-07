@@ -1,14 +1,14 @@
 angular.module('app.modules')
     .controller('relatorioQtdAcessosCtrl', relatorioQtdAcessosCtrl);
 
-function relatorioQtdAcessosCtrl(HelperService, $modal, pesquisa) {
-    //variables
-    this.optativa = 'false';
+function relatorioQtdAcessosCtrl(pesquisa) {
+    // variáveis
+    var vm = this;
 
-    //definitions
+    // definição
     this.fechaModal = fechaModal;
 
-    //functions
+    // implementação
     function fechaModal() {
         $modal.hide();
     }
